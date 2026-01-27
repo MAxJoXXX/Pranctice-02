@@ -254,4 +254,23 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', newTheme);
         themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
     });
+
+    // Menu Recommendation Logic
+    const recommendButton = document.getElementById('recommendButton');
+    const menuRecommendationDiv = document.getElementById('menuRecommendation');
+
+    const foodRecommendations = [
+        "김치찌개", "된장찌개", "불고기", "비빔밥", "삼겹살",
+        "치킨", "피자", "족발", "보쌈", "떡볶이",
+        "짜장면", "짬뽕", "탕수육", "초밥", "파스타",
+        "스테이크", "샐러드", "카레", "돈까스", "햄버거"
+    ];
+
+    if (recommendButton && menuRecommendationDiv) {
+        recommendButton.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * foodRecommendations.length);
+            const recommendedFood = foodRecommendations[randomIndex];
+            menuRecommendationDiv.innerHTML = `<p>${recommendedFood} 어떠세요?</p>`;
+        });
+    }
 });
