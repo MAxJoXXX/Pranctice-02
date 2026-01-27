@@ -5,8 +5,6 @@ class ProductCard extends HTMLElement {
     }
 
     connectedCallback() {
-        const template = document.getElementById('product-card-template');
-        // The new template is defined within the component itself for better encapsulation
         const newTemplate = document.createElement('template');
         newTemplate.innerHTML = this.getTemplate();
         
@@ -61,14 +59,21 @@ class ProductCard extends HTMLElement {
                 :host {
                     display: block;
                     border-radius: 15px;
-                    background: var(--white, #fff);
+                    background: var(--card-bg-color, #fff);
+                    color: var(--text-color);
                     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
                     overflow: hidden;
-                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+                }
+                html[data-theme='dark'] :host {
+                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
                 }
                 :host(:hover) {
                     transform: translateY(-10px);
                     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+                }
+                html[data-theme='dark'] :host(:hover) {
+                    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
                 }
                 .product-image {
                     overflow: hidden;
@@ -91,6 +96,7 @@ class ProductCard extends HTMLElement {
                     font-size: 1.2rem;
                     font-weight: 700;
                     margin: 0 0 0.5rem;
+                    color: var(--text-color);
                 }
                 .product-rating {
                     color: oklch(80% 0.2 85); /* Gold color */
@@ -103,13 +109,14 @@ class ProductCard extends HTMLElement {
                     margin-bottom: 1rem;
                 }
                 .discount-rate {
-                    color: var(--accent-color, oklch(75% 0.3 330));
+                    color: var(--accent-color);
                     font-size: 1.5rem;
                     font-weight: 900;
                 }
                 .final-price {
                     font-size: 1.5rem;
                     font-weight: 700;
+                    color: var(--text-color);
                 }
                 .original-price {
                     text-decoration: line-through;
@@ -120,9 +127,10 @@ class ProductCard extends HTMLElement {
                     padding: 0 1rem 1rem;
                     text-align: center;
                     font-weight: 700;
+                    color: var(--text-color);
                 }
                 .product-timer .countdown {
-                    color: var(--primary-color, oklch(65% 0.25 260));
+                    color: var(--primary-color);
                     margin-left: 0.5rem;
                 }
                 .add-to-cart-button {
@@ -218,15 +226,32 @@ const products = [
     }
 ];
 
-const productGrid = document.querySelector('.product-grid');
+document.addEventListener('DOMContentLoaded', () => {
+    const productGrid = document.querySelector('.product-grid');
+    products.forEach(product => {
+        const productCard = document.createElement('product-card');
+        productCard.setAttribute('data-name', product.name);
+        productCard.setAttribute('data-image', product.image);
+        productCard.setAttribute('data-rating', product.rating);
+        productCard.setAttribute('data-original-price', product.originalPrice);
+        productCard.setAttribute('data-final-price', product.finalPrice);
+        productCard.setAttribute('data-time-left', product.timeLeft);
+        productGrid.appendChild(productCard);
+    });
 
-products.forEach(product => {
-    const productCard = document.createElement('product-card');
-    productCard.setAttribute('data-name', product.name);
-    productCard.setAttribute('data-image', product.image);
-    productCard.setAttribute('data-rating', product.rating);
-    productCard.setAttribute('data-original-price', product.originalPrice);
-    productCard.setAttribute('data-final-price', product.finalPrice);
-    productCard.setAttribute('data-time-left', product.timeLeft);
-    productGrid.appendChild(productCard);
+    const themeToggle = document.getElementById('theme-toggle');
+    const htmlEl = document.documentElement;
+
+    // Load theme from localStorage
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    htmlEl.setAttribute('data-theme', currentTheme);
+    themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+
+
+    themeToggle.addEventListener('click', () => {
+        const newTheme = htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        htmlEl.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    });
 });
