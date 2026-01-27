@@ -3,15 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로또 번호 추첨기</title>
+    <title>Wannabe-Shopping</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>로또 번호 추첨기</h1>
-        <div id="lotto-numbers-container"></div>
-        <button id="draw-button">추첨</button>
-    </div>
+    <header class="header">
+        <h1 class="logo">Wannabe-Shopping</h1>
+        <nav class="nav">
+            <a href="#">Home</a>
+            <a href="#">Best</a>
+            <a href="#">New</a>
+            <a href="#">Sale</a>
+        </nav>
+    </header>
+
+    <main class="product-grid">
+        <!-- Product cards will be inserted here by JavaScript -->
+    </main>
+
+    <template id="product-card-template">
+        <div class="product-card">
+            <div class="product-image">
+                <img src="" alt="Product Image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-title"></h3>
+                <div class="product-rating"></div>
+                <div class="product-price">
+                    <span class="discount-rate"></span>
+                    <span class="final-price"></span>
+                    <span class="original-price"></span>
+                </div>
+            </div>
+            <div class="product-timer">
+                <span>Time Left:</span>
+                <span class="countdown"></span>
+            </div>
+            <button class="add-to-cart-button">Add to Cart</button>
+        </div>
+    </template>
+
     <script src="main.js"></script>
 </body>
 </html>
