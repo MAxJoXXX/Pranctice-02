@@ -13,22 +13,21 @@
         <div id="menuRecommendation" class="menu-card">
             <p>버튼을 눌러 추천 메뉴를 받아보세요!</p>
         </div>
-    </div>
+        <div class="re-engagement-container">
+            <h2>재휴안내 문의</h2>
+            <form action="https://formspree.io/f/mgokrbjr" method="POST">
+                <label for="name">이름:</label>
+                <input type="text" id="name" name="name" required>
 
-    <div class="re-engagement-container">
-        <h2>재휴안내 문의</h2>
-        <form action="https://formspree.io/f/mgokrbjr" method="POST">
-            <label for="name">이름:</label>
-            <input type="text" id="name" name="name" required>
+                <label for="email">이메일:</label>
+                <input type="email" id="email" name="_replyto" required>
 
-            <label for="email">이메일:</label>
-            <input type="email" id="email" name="_replyto" required>
+                <label for="message">메시지:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
 
-            <label for="message">메시지:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-
-            <button type="submit">문의하기</button>
-        </form>
+                <button type="submit">문의하기</button>
+            </form>
+        </div>
     </div>
     <script src="main.js"></script>
 </body>
