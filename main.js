@@ -227,19 +227,6 @@ const products = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-    const productGrid = document.querySelector('.product-grid');
-    products.forEach(product => {
-        const productCard = document.createElement('product-card');
-        productCard.setAttribute('data-name', product.name);
-        productCard.setAttribute('data-image', product.image);
-        productCard.setAttribute('data-rating', product.rating);
-        productCard.setAttribute('data-original-price', product.originalPrice);
-        productCard.setAttribute('data-final-price', product.finalPrice);
-        productCard.setAttribute('data-time-left', product.timeLeft);
-        productGrid.appendChild(productCard);
-    });
-
-    const themeToggle = document.getElementById('theme-toggle');
     const htmlEl = document.documentElement;
 
     // Load theme from localStorage
