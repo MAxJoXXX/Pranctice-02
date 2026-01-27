@@ -17,17 +17,16 @@ This project is a modern web application designed to showcase a "home shopping" 
     *   Modern color palette (`oklch`), typography, and effects (shadows, textures).
 *   **Interactivity:**
     *   Hover effects and interactive buttons.
-
-### Planned
-
-*   **Dark Mode:** A user-toggleable dark theme.
+*   **Dark Mode:** A user-toggleable dark theme that persists in `localStorage`.
+*   **Pages:**
+    *   Home (`index.html`)
+    *   Best (`best.html`)
+    *   New (`new.html`)
+    *   Sale (`sale.html`)
 
 ## Plan for Current Request
 
-1.  **Modify `index.html`:** Add a dark mode toggle button to the header.
-2.  **Modify `style.css`:** Define dark mode color variables and apply them using a `data-theme` selector.
-3.  **Modify `main.js`:**
-    *   Implement the logic for the theme-switching toggle.
-    *   Use `localStorage` to persist the chosen theme.
-    *   Ensure Web Components adapt to the theme change.
-4.  **Commit and Push:** Add, commit, and push the changes to the repository.
+1.  **Create New HTML Pages:** Create `best.html`, `new.html`, and `sale.html`.
+2.  **Update Navigation:** Ensure navigation links in the header of all HTML files point to the correct pages.
+3.  **Differentiate Content (Optional):** Add unique titles or slightly different product selections for each page. For now, they will share the same product grid but have a unique H1 title.
+4.  **Commit and Push:** Add, commit, and push the new pages to the repository to deploy them via GitHub Pages.

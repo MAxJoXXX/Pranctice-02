@@ -80,3 +80,15 @@ body {
     padding: 2rem;
     container-type: inline-size;
 }
+
+.product-grid-container {
+    padding: 0 2rem;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-align: center;
+    margin: 2rem 0;
+    color: var(--primary-color);
+}
