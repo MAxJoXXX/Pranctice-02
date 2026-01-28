@@ -1,5 +1,5 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,290 +7,42 @@ body {
     margin: 0;
     background-color: #f4f4f4;
     color: #333;
-    text-align: center;
-    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
 .container {
     background-color: #fff;
-    padding: 30px 40px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
     width: 90%;
-    transform: translateY(-20px);
-    opacity: 0;
-    animation: fadeInSlideUp 0.8s forwards ease-out;
-}
-
-@keyframes fadeInSlideUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    max-width: 500px;
 }
 
 h1 {
-    color: #5d4a7c;
-    margin-bottom: 25px;
-    font-size: 2.2em;
-    font-weight: bold;
-    letter-spacing: -0.5px;
+    color: #4CAF50;
+    margin-bottom: 20px;
 }
 
-#recommendButton {
-    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+button {
+    background-color: #4CAF50;
     color: white;
     border: none;
-    padding: 15px 30px;
-    font-size: 1.1em;
-    border-radius: 8px;
+    padding: 12px 24px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    margin-bottom: 30px;
-    outline: none;
-    position: relative;
-    overflow: hidden;
-}
-
-#recommendButton:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    background-image: linear-gradient(to right, #2575fc 0%, #6a11cb 100%);
-}
-
-#recommendButton:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-#recommendButton::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300%;
-    height: 300%;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 50%;
-    transition: all 0.7s ease-out;
-    transform: translate(-50%, -50%) scale(0);
-}
-
-#recommendButton:hover::before {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0;
-}
-
-.menu-card {
-    background-color: #e8f0fe;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
-    min-height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.4em;
-    font-weight: 600;
-    color: #4a69bd;
-    border: 1px solid #c2d9ff;
-    transition: all 0.4s ease-in-out;
-    position: relative;
-    overflow: hidden;
-}
-
-.menu-card p {
-    margin: 0;
-    animation: textAppear 0.6s forwards;
-}
-
-@keyframes textAppear {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.menu-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
-    z-index: 1;
-    pointer-events: none;
-}
-
-/* Re-engagement Form Styles */
-.re-engagement-container {
-    background-color: #fff;
-    padding: 30px 40px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    width: 90%;
-    margin-top: 40px; /* Space between the two containers */
-    animation: fadeInSlideUp 0.8s forwards ease-out; /* Re-use animation */
-}
-
-.re-engagement-container h2 {
-    color: #5d4a7c;
-    margin-bottom: 25px;
-    font-size: 1.8em;
-    font-weight: bold;
-    letter-spacing: -0.5px;
-}
-
-.re-engagement-container form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    text-align: left;
-}
-
-.re-engagement-container label {
-    font-size: 1em;
-    color: #333;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.re-engagement-container input[type="text"],
-.re-engagement-container input[type="email"],
-.re-engagement-container textarea {
-    width: calc(100% - 20px);
-    padding: 12px 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1em;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
-}
-
-.re-engagement-container input[type="text"]:focus,
-.re-engagement-container input[type="email"]:focus,
-.re-engagement-container textarea:focus {
-    border-color: #6a11cb;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.2);
-}
-
-.re-engagement-container button[type="submit"] {
-    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    font-size: 1.1em;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
     margin-top: 15px;
-    outline: none;
-    align-self: center; /* Center the button */
+    transition: background-color 0.3s ease;
 }
 
-.re-engagement-container button[type="submit"]:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    background-image: linear-gradient(to right, #2575fc 0%, #6a11cb 100%);
+button:hover {
+    background-color: #45a049;
 }
 
-.re-engagement-container button[type="submit"]:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-
-/* Re-engagement Form Styles */
-.re-engagement-container {
-    background-color: #fff;
-    padding: 30px 40px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    width: 90%;
-    margin-top: 40px; /* Space between the two containers */
-    animation: fadeInSlideUp 0.8s forwards ease-out; /* Re-use animation */
-}
-
-.re-engagement-container h2 {
-    color: #5d4a7c;
-    margin-bottom: 25px;
-    font-size: 1.8em;
+#menuRecommendation {
+    margin-top: 30px;
+    font-size: 1.2em;
     font-weight: bold;
-    letter-spacing: -0.5px;
+    color: #666;
 }
-
-.re-engagement-container form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    text-align: left;
-}
-
-.re-engagement-container label {
-    font-size: 1em;
-    color: #333;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.re-engagement-container input[type="text"],
-.re-engagement-container input[type="email"],
-.re-engagement-container textarea {
-    width: calc(100% - 20px);
-    padding: 12px 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1em;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
-}
-
-.re-engagement-container input[type="text"]:focus,
-.re-engagement-container input[type="email"]:focus,
-.re-engagement-container textarea:focus {
-    border-color: #6a11cb;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.2);
-}
-
-.re-engagement-container button[type="submit"] {
-    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    font-size: 1.1em;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    margin-top: 15px;
-    outline: none;
-    align-self: center; /* Center the button */
-}
-
-.re-engagement-container button[type="submit"]:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    background-image: linear-gradient(to right, #2575fc 0%, #6a11cb 100%);
-}
-
-.re-engagement-container button[type="submit"]:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
