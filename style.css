@@ -46,3 +46,82 @@ button:hover {
     font-weight: bold;
     color: #666;
 }
+
+hr {
+    margin: 40px 0;
+    border: 0;
+    border-top: 1px solid #ddd;
+}
+
+.fs-form {
+    display: grid;
+    gap: 20px;
+}
+
+.fs-layout__2-column {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.fs-fieldset-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    grid-column: 1 / -1;
+    text-align: left;
+}
+
+.fs-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.col-span-full {
+    grid-column: 1 / -1;
+}
+
+.fs-label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.fs-input,
+.fs-select,
+.fs-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Aggiunto per un corretto box model */
+}
+
+.fs-checkbox-field {
+    display: flex;
+    align-items: center;
+    grid-column: 1 / -1;
+}
+
+.fs-checkbox-wrapper {
+    margin-right: 10px;
+}
+
+.fs-button-group {
+    grid-column: 1 / -1;
+    text-align: right;
+}
+
+.fs-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.fs-button:hover {
+    background-color: #45a049;
+}
