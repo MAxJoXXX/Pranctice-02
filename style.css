@@ -1,62 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Open Sans', 'Noto Sans KR', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #f4f4f4;
+    padding: 20px 0;
+    background-color: #f7f8fa;
     color: #333;
 }
 
 .container {
     background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
     text-align: center;
     width: 90%;
-    max-width: 500px;
+    max-width: 700px;
+    margin-bottom: 30px;
 }
 
 h1 {
-    color: #4CAF50;
-    margin-bottom: 20px;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 700;
 }
 
-button {
-    background-color: #4CAF50;
+button,
+.fs-button {
+    background-color: #007bff;
     color: white;
     border: none;
     padding: 12px 24px;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
+    font-weight: 700;
     margin-top: 15px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-button:hover {
-    background-color: #45a049;
+button:hover,
+.fs-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
 }
 
 #menuRecommendation {
     margin-top: 30px;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #666;
+    font-size: 1.3em;
+    font-weight: 700;
+    color: #007bff;
 }
 
 hr {
-    margin: 40px 0;
-    border: 0;
-    border-top: 1px solid #ddd;
+    display: none; /* Hide the old horizontal rule */
 }
 
 .fs-form {
     display: grid;
-    gap: 20px;
+    gap: 25px;
 }
 
 .fs-layout__2-column {
@@ -64,12 +71,14 @@ hr {
 }
 
 .fs-fieldset-title {
-    font-size: 1.2em;
-    font-weight: bold;
+    font-size: 1.5em;
+    font-weight: 700;
     color: #333;
     margin-bottom: 10px;
     grid-column: 1 / -1;
     text-align: left;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
 }
 
 .fs-field {
@@ -82,20 +91,31 @@ hr {
 }
 
 .fs-label {
-    margin-bottom: 5px;
-    font-weight: bold;
+    margin-bottom: 8px;
+    font-weight: 700;
     text-align: left;
+    color: #555;
 }
 
 .fs-input,
 .fs-select,
 .fs-textarea {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box; /* Aggiunto per un corretto box model */
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
+
+.fs-input:focus,
+.fs-select:focus,
+.fs-textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
 
 .fs-checkbox-field {
     display: flex;
@@ -110,19 +130,4 @@ hr {
 .fs-button-group {
     grid-column: 1 / -1;
     text-align: right;
-}
-
-.fs-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.fs-button:hover {
-    background-color: #45a049;
 }
