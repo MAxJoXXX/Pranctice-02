@@ -82,3 +82,5 @@ document.addEventListener('DOMContentLoaded', () => {
             resultsSection.appendChild(noResultsMessage);
         }
     }
+}); // ADDED THIS MISSING CLOSING BRACE
+
