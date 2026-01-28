@@ -59,7 +59,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const address = document.createElement('p');
                 address.className = 'restaurant-address';
-                address.textContent = restaurant.address;
+                const addressLink = document.createElement('a');
+                addressLink.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(restaurant.address)}`;
+                addressLink.target = "_blank"; // Open in new tab
+                addressLink.textContent = restaurant.address;
+                address.appendChild(addressLink);
 
                 const image = document.createElement('img');
                 image.src = restaurant.image;
