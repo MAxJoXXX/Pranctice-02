@@ -95,6 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const card = document.createElement('div');
         card.className = 'restaurant-card';
         
+        const image = document.createElement('img');
+        image.src = restaurant.image;
+        image.alt = restaurant.name;
+        image.className = 'restaurant-image';
+        
         const title = document.createElement('h3');
         title.textContent = restaurant.name;
 
@@ -104,11 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const description = document.createElement('p');
         description.textContent = restaurant.description;
-
-        const image = document.createElement('img');
-        image.src = restaurant.image;
-        image.alt = restaurant.name;
-        image.className = 'restaurant-image';
 
         card.appendChild(image);
         card.appendChild(title);
