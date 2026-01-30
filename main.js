@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchForm = document.getElementById('search-form');
     const searchInput = document.getElementById('search-input');
     const resultsSection = document.getElementById('results-section');
+    const featuredSection = document.getElementById('featured-section');
 
     // Hardcoded database for restaurant recommendations
     const restaurantData = {
@@ -9,82 +10,110 @@ document.addEventListener('DOMContentLoaded', () => {
             {
                 name: "Trattoria da Enzo",
                 address: "Via dei Vascellari, 29, 00153 Roma RM, Italy",
-                image: "https://via.placeholder.com/150/FF6347/FFFFFF?text=Carbonara",
-                reason: "사람들의 댓글에 따르면, '진정한 로마의 맛을 느낄 수 있는 곳'이라며 현지인과 관광객 모두에게 극찬을 받습니다. 특히 까르보나라 파스타와 소꼬리찜(코다 알라 바치나라)은 인생 요리라는 평이 많습니다."
+                category: "이탈리안",
+                rating: 4.5,
+                description: "현지인과 관광객 모두에게 사랑받는 정통 로마 요리 전문점. 대표 메뉴인 까르보나라와 소꼬리찜이 일품입니다.",
+                image: "https://via.placeholder.com/300/FF6347/FFFFFF?text=Da+Enzo"
             },
             {
                 name: "Roscioli Salumeria con Cucina",
                 address: "Via dei Giubbonari 21, 00186 Roma RM, Italy",
-                image: "https://via.placeholder.com/150/FF6347/FFFFFF?text=Deli+Cheese",
-                reason: "이곳은 '신선한 재료의 끝판왕'으로 불립니다. 댓글을 보면 '살라미와 치즈의 풍미가 잊을 수 없다'는 칭찬이 자자하며, 예약 없이는 방문이 거의 불가능할 정도로 인기가 높습니다."
+                category: "델리 & 와인바",
+                rating: 4.6,
+                description: "최고급 햄, 치즈와 함께 훌륭한 파스타를 맛볼 수 있는 곳. 예약은 필수이며, 와인 애호가들의 성지입니다.",
+                image: "https://via.placeholder.com/300/4682B4/FFFFFF?text=Roscioli"
             },
             {
                 name: "Da Francesco",
                 address: "Piazza del Fico, 29, 00186 Roma RM, Italy",
-                image: "https://via.placeholder.com/150/FF6347/FFFFFF?text=Roman+Pizza",
-                reason: "'피자가 생각날 때 무조건 가야 할 곳'이라는 댓글이 많습니다. 특히 화덕에서 갓 구운 트러플 피자는 '한 입 먹는 순간 천상의 맛을 경험했다'는 후기가 지배적입니다."
+                category: "피자",
+                rating: 4.4,
+                description: "나보나 광장 근처에 위치한 인기 피자 레스토랑. 특히 화덕에서 구운 바삭한 트러플 피자가 유명합니다.",
+                image: "https://via.placeholder.com/300/32CD32/FFFFFF?text=Da+Francesco"
+            }
+        ],
+        "뉴욕 타임스퀘어 맛집": [
+            {
+                name: "Joe's Pizza",
+                address: "1435 Broadway, New York, NY 10018",
+                category: "피자",
+                rating: 4.5,
+                description: "뉴욕을 대표하는 클래식 슬라이스 피자. 저렴한 가격으로 정통 뉴욕 피자를 맛볼 수 있어 항상 붐빕니다.",
+                image: "https://via.placeholder.com/300/FFD700/000000?text=Joe's+Pizza"
             },
             {
-                name: "Felice a Testaccio",
-                address: "Via Mastro Giorgio, 29, 00153 Rome, Lazio, Italy",
-                image: "https://via.placeholder.com/150/FF6347/FFFFFF?text=Cacio+e+Pepe",
-                reason: "카초 에 페페(Cacio e Pepe) 파스타의 성지로 알려져 있습니다. '직원이 눈앞에서 치즈를 비벼주는 퍼포먼스와 그 맛은 로마 여행의 하이라이트'라는 댓글이 이 식당의 인기를 증명합니다."
-            },
-            {
-                name: "Trapizzino",
-                address: "Via Giovanni Giolitti 36, 00185 Roma RM, Italy",
-                image: "https://via.placeholder.com/150/FF6347/FFFFFF?text=Trapizzino",
-                reason: "로마식 길거리 음식을 현대적으로 재해석한 곳입니다. '피자 도우 안에 다양한 속을 채워 넣은 트라피지노는 가성비와 맛을 모두 잡았다'는 댓글이 많으며, 간단하면서도 특별한 한 끼로 강력 추천됩니다."
+                name: "Los Tacos No. 1",
+                address: "229 W 43rd St, New York, NY 10036",
+                category: "멕시칸",
+                rating: 4.7,
+                description: "첼시 마켓에서 시작된 유명 타코 전문점. 신선한 재료로 만든 타코와 퀘사디아가 일품입니다.",
+                image: "https://via.placeholder.com/300/20B2AA/FFFFFF?text=Los+Tacos"
             }
         ]
     };
 
+    // Render featured restaurants on page load
+    renderFeatured();
+
     searchForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const query = searchInput.value.trim();
+        const query = searchInput.value.trim().toLowerCase();
         renderResults(query);
     });
 
+    function renderFeatured() {
+        const allRestaurants = Object.values(restaurantData).flat();
+        const shuffled = allRestaurants.sort(() => 0.5 - Math.random());
+        const featured = shuffled.slice(0, 2); // Get first 2 random restaurants
+
+        featured.forEach(restaurant => {
+            const card = createRestaurantCard(restaurant);
+            featuredSection.appendChild(card);
+        });
+    }
+
     function renderResults(query) {
-        const results = restaurantData[query];
+        // Find a key in restaurantData that contains the query
+        const matchingKey = Object.keys(restaurantData).find(key => key.toLowerCase().includes(query));
+        const results = restaurantData[matchingKey];
+
         resultsSection.innerHTML = ''; // Clear previous results
 
         if (results) {
             results.forEach(restaurant => {
-                const card = document.createElement('div');
-                card.className = 'restaurant-card';
-                
-                const title = document.createElement('h3');
-                title.textContent = restaurant.name;
-
-                const address = document.createElement('p');
-                address.className = 'restaurant-address';
-                const addressLink = document.createElement('a');
-                addressLink.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(restaurant.address)}`;
-                addressLink.target = "_blank"; // Open in new tab
-                addressLink.textContent = restaurant.address;
-                address.appendChild(addressLink);
-
-                const image = document.createElement('img');
-                image.src = restaurant.image;
-                image.alt = restaurant.name;
-                image.className = 'restaurant-image';
-                
-                const reason = document.createElement('p');
-                reason.className = 'reason';
-                reason.textContent = restaurant.reason;
-
-                card.appendChild(title);
-                card.appendChild(address);
-                card.appendChild(image);
-                card.appendChild(reason);
+                const card = createRestaurantCard(restaurant);
                 resultsSection.appendChild(card);
             });
         } else {
             const noResultsMessage = document.createElement('p');
-            noResultsMessage.textContent = `'${query}'에 대한 맛집 정보를 찾을 수 없습니다. '로마역 맛집'으로 검색해보세요.`;
+            noResultsMessage.textContent = `'${query}'에 대한 맛집 정보를 찾을 수 없습니다. '로마역' 또는 '뉴욕' 등으로 검색해보세요.`;
             resultsSection.appendChild(noResultsMessage);
         }
     }
-}); // ADDED THIS MISSING CLOSING BRACE
 
+    function createRestaurantCard(restaurant) {
+        const card = document.createElement('div');
+        card.className = 'restaurant-card';
+        
+        const title = document.createElement('h3');
+        title.textContent = restaurant.name;
+
+        const details = document.createElement('p');
+        details.className = 'restaurant-details';
+        details.textContent = `카테고리: ${restaurant.category} | 평점: ${restaurant.rating} ★`;
+        
+        const description = document.createElement('p');
+        description.textContent = restaurant.description;
+
+        const image = document.createElement('img');
+        image.src = restaurant.image;
+        image.alt = restaurant.name;
+        image.className = 'restaurant-image';
+
+        card.appendChild(image);
+        card.appendChild(title);
+        card.appendChild(details);
+        card.appendChild(description);
+        return card;
+    }
+});
