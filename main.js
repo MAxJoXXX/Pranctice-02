@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 category: "이탈리안",
                 rating: 4.5,
                 description: "현지인과 관광객 모두에게 사랑받는 정통 로마 요리 전문점. 대표 메뉴인 까르보나라와 소꼬리찜이 일품입니다.",
-                image: "https://via.placeholder.com/300/FF6347/FFFFFF?text=Da+Enzo"
+                image: "https://source.unsplash.com/400x300/?pasta,rome"
             },
             {
                 name: "Roscioli Salumeria con Cucina",
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 category: "델리 & 와인바",
                 rating: 4.6,
                 description: "최고급 햄, 치즈와 함께 훌륭한 파스타를 맛볼 수 있는 곳. 예약은 필수이며, 와인 애호가들의 성지입니다.",
-                image: "https://via.placeholder.com/300/4682B4/FFFFFF?text=Roscioli"
+                image: "https://source.unsplash.com/400x300/?wine,charcuterie"
             },
             {
                 name: "Da Francesco",
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 category: "피자",
                 rating: 4.4,
                 description: "나보나 광장 근처에 위치한 인기 피자 레스토랑. 특히 화덕에서 구운 바삭한 트러플 피자가 유명합니다.",
-                image: "https://via.placeholder.com/300/32CD32/FFFFFF?text=Da+Francesco"
+                image: "https://source.unsplash.com/400x300/?pizza"
             }
         ],
         "뉴욕 타임스퀘어 맛집": [
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 category: "피자",
                 rating: 4.5,
                 description: "뉴욕을 대표하는 클래식 슬라이스 피자. 저렴한 가격으로 정통 뉴욕 피자를 맛볼 수 있어 항상 붐빕니다.",
-                image: "https://via.placeholder.com/300/FFD700/000000?text=Joe's+Pizza"
+                image: "https://source.unsplash.com/400x300/?new-york,pizza"
             },
             {
                 name: "Los Tacos No. 1",
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 category: "멕시칸",
                 rating: 4.7,
                 description: "첼시 마켓에서 시작된 유명 타코 전문점. 신선한 재료로 만든 타코와 퀘사디아가 일품입니다.",
-                image: "https://via.placeholder.com/300/20B2AA/FFFFFF?text=Los+Tacos"
+                image: "https://source.unsplash.com/400x300/?tacos"
             }
         ]
     };
