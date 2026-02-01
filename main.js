@@ -110,10 +110,33 @@ document.addEventListener('DOMContentLoaded', () => {
         const description = document.createElement('p');
         description.textContent = restaurant.description;
 
+        const jsonLd = {
+            "@context": "https://schema.org",
+            "@type": "Restaurant",
+            "name": restaurant.name,
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": restaurant.address
+            },
+            "servesCuisine": restaurant.category,
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": restaurant.rating,
+                "reviewCount": "1" 
+            },
+            "description": restaurant.description,
+            "image": restaurant.image
+        };
+
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.textContent = JSON.stringify(jsonLd);
+
         card.appendChild(image);
         card.appendChild(title);
         card.appendChild(details);
         card.appendChild(description);
+        card.appendChild(script);
         return card;
     }
 });
