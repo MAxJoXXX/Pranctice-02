@@ -456,7 +456,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
-        console.log('Form submitted!'); // 디버깅
+        console.log('Form submitted.'); // Debug log
 
         // Validation check for all questions
         const allQuestionsAnswered = Array.from(document.querySelectorAll('.survey-part')).every(part => {
@@ -469,12 +469,11 @@ document.addEventListener('DOMContentLoaded', () => {
             );
         });
 
-        console.log('All questions answered:', allQuestionsAnswered); // 디버깅
-
         if (!allQuestionsAnswered) {
             alert(translations[currentLang]["alert-unanswered"]);
             resultsSection.style.display = 'none'; // Hide results if validation fails
             document.getElementById('skin-type-details').style.display = 'none';
+            console.warn('Validation failed: Not all questions answered.'); // Debug log
             return; // Stop the function
         }
 
@@ -484,59 +483,57 @@ document.addEventListener('DOMContentLoaded', () => {
         let p4Score = 0;
 
         // Part 1: Oil (O) vs Dry (D)
-        // O is 1,2. D is 3,4. Score O by counting 1s and 2s.
         document.querySelectorAll('input[name^="q"][name$="-p1"]:checked').forEach(input => {
             const value = parseInt(input.value);
-            if (value === 1 || value === 2) { // Based on the [계산] ①,②번이 많으면 O(지성) / ③,④번이 많으면 D(건성)
+            if (value === 1 || value === 2) { 
                 p1Score += 1;
             }
         });
-        const resultP1 = p1Score >= 3 ? 'O (Oily)' : 'D (Dry)'; // Assuming 3 or more is "many"
-
+        const resultP1 = p1Score >= 3 ? 'O (Oily)' : 'D (Dry)';
+        console.log('Part 1 Score:', p1Score, 'Result:', resultP1); // Debug log
 
         // Part 2: Sensitive (S) vs Resistant (R)
-        // S is 1,2. R is 3,4. Score S by counting 1s and 2s.
         document.querySelectorAll('input[name^="q"][name$="-p2"]:checked').forEach(input => {
             const value = parseInt(input.value);
-            if (value === 1 || value === 2) { // Based on the [계산] ①,②번이 많으면 S(민감성) / ③,④번이 많으면 R(저항성)
+            if (value === 1 || value === 2) {
                 p2Score += 1;
             }
         });
-        const resultP2 = p2Score >= 3 ? 'S (Sensitive)' : 'R (Resistant)'; // Assuming 3 or more is "many"
-
+        const resultP2 = p2Score >= 3 ? 'S (Sensitive)' : 'R (Resistant)';
+        console.log('Part 2 Score:', p2Score, 'Result:', resultP2); // Debug log
 
         // Part 3: Pigmented (P) vs Non-Pigmented (N)
-        // P is 1,2. N is 3,4. Score P by counting 1s and 2s.
         document.querySelectorAll('input[name^="q"][name$="-p3"]:checked').forEach(input => {
             const value = parseInt(input.value);
-            if (value === 1 || value === 2) { // Based on the [계산] ①,②번이 많으면 P(색소성) / ③,④번이 많으면 N(비색소성)
+            if (value === 1 || value === 2) {
                 p3Score += 1;
             }
         });
-        const resultP3 = p3Score >= 3 ? 'P (Pigmented)' : 'N (Non-Pigmented)'; // Assuming 3 or more is "many"
-
+        const resultP3 = p3Score >= 3 ? 'P (Pigmented)' : 'N (Non-Pigmented)';
+        console.log('Part 3 Score:', p3Score, 'Result:', resultP3); // Debug log
 
         // Part 4: Wrinkles (W) vs Firmness (T)
-        // W is 1,2. T is 3,4. Score W by counting 1s and 2s.
         document.querySelectorAll('input[name^="q"][name$="-p4"]:checked').forEach(input => {
             const value = parseInt(input.value);
-            if (value === 1 || value === 2) { // Based on the [계산] ①,②번이 많으면 W(주름형) / ③,④번이 많으면 T(탱탱함)
+            if (value === 1 || value === 2) {
                 p4Score += 1;
             }
         });
-        const resultP4 = p4Score >= 3 ? 'W (Wrinkles)' : 'T (Firmness)'; // Assuming 3 or more is "many"
+        const resultP4 = p4Score >= 3 ? 'W (Wrinkles)' : 'T (Firmness)';
+        console.log('Part 4 Score:', p4Score, 'Result:', resultP4); // Debug log
 
-        // 먼저 결과 섹션을 표시
+        // First, ensure the results section is visible
         resultsSection.style.display = 'block';
+        console.log('Results section display set to block.'); // Debug log
 
-        // 그 다음 결과 채우기
+        // Then populate the results
         document.getElementById('result-p1-type').textContent = resultP1;
         document.getElementById('result-p2-type').textContent = resultP2;
         document.getElementById('result-p3-type').textContent = resultP3;
         document.getElementById('result-p4-type').textContent = resultP4;
 
         const overallSkinType = `${resultP1.charAt(0)}${resultP2.charAt(0)}${resultP3.charAt(0)}${resultP4.charAt(0)}`;
-        console.log('Calculated skin type:', overallSkinType); // 디버깅
+        console.log('Calculated Overall Skin Type:', overallSkinType); // Debug log
         document.getElementById('overall-skin-type').textContent = overallSkinType;
 
         const skinTypeDetailsIntroP = document.getElementById('skin-type-details-intro-p');
@@ -555,16 +552,33 @@ document.addEventListener('DOMContentLoaded', () => {
             detailsCharacteristics.textContent = detail.characteristics;
             detailsManagement.textContent = detail.management;
             skinTypeDetailDiv.style.display = 'block';
+            console.log('Displayed detailed skin type:', overallSkinType); // Debug log
         } else {
             detailsTitle.textContent = '';
             detailsCharacteristics.textContent = '';
             detailsManagement.textContent = '';
             skinTypeDetailDiv.style.display = 'none';
+            console.warn('Detailed skin type not found for:', overallSkinType); // Debug log
         }
 
-        // 결과 섹션으로 부드럽게 스크롤
+        // Update results text with current language
+        const p1Span = document.getElementById('result-p1-type');
+        if (p1Span) p1Span.previousSibling.textContent = translations[currentLang]["result-p1"];
+        
+        const p2Span = document.getElementById('result-p2-type');
+        if (p2Span) p2Span.previousSibling.textContent = translations[currentLang]["result-p2"];
+
+        const p3Span = document.getElementById('result-p3-type');
+        if (p3Span) p3Span.previousSibling.textContent = translations[currentLang]["result-p3"];
+
+        const p4Span = document.getElementById('result-p4-type');
+        if (p4Span) p4Span.previousSibling.textContent = translations[currentLang]["result-p4"];
+        
+        const overallSkinTypeSpan = document.getElementById('overall-skin-type');
+        if (overallSkinTypeSpan) overallSkinTypeSpan.previousSibling.textContent = translations[currentLang]["overall-result"];
+
+
+        // Smooth scroll to results section
         setTimeout(() => {
             resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 100);
-    });
-});
