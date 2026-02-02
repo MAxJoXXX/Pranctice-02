@@ -456,6 +456,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
+        console.log('Form submitted!'); // 디버깅
 
         // Validation check for all questions
         const allQuestionsAnswered = Array.from(document.querySelectorAll('.survey-part')).every(part => {
@@ -467,6 +468,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 part.querySelector(`input[name="${name}"]:checked`)
             );
         });
+
+        console.log('All questions answered:', allQuestionsAnswered); // 디버깅
 
         if (!allQuestionsAnswered) {
             alert(translations[currentLang]["alert-unanswered"]);
@@ -529,6 +532,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('result-p4-type').textContent = resultP4;
 
         const overallSkinType = `${resultP1.charAt(0)}${resultP2.charAt(0)}${resultP3.charAt(0)}${resultP4.charAt(0)}`;
+        console.log('Calculated skin type:', overallSkinType); // 디버깅
         document.getElementById('overall-skin-type').textContent = overallSkinType;
 
         const skinTypeDetailsIntroP = document.getElementById('skin-type-details-intro-p');
@@ -558,20 +562,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         resultsSection.style.display = 'block';
 
-        // Update results text with current language
-        const p1Span = document.getElementById('result-p1-type');
-        if (p1Span) p1Span.textContent = translations[currentLang]["result-p1"] + p1Span.textContent;
-        
-        const p2Span = document.getElementById('result-p2-type');
-        if (p2Span) p2Span.textContent = translations[currentLang]["result-p2"] + p2Span.textContent;
-
-        const p3Span = document.getElementById('result-p3-type');
-        if (p3Span) p3Span.textContent = translations[currentLang]["result-p3"] + p3Span.textContent;
-
-        const p4Span = document.getElementById('result-p4-type');
-        if (p4Span) p4Span.textContent = translations[currentLang]["result-p4"] + p4Span.textContent;
-        
-        const overallSkinTypeSpan = document.getElementById('overall-skin-type');
-        if (overallSkinTypeSpan) overallSkinTypeSpan.previousSibling.textContent = translations[currentLang]["overall-result"];
+        // 결과 섹션으로 부드럽게 스크롤
+        setTimeout(() => {
+            resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
     });
 });
