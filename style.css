@@ -1,62 +1,69 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 20px;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #f0f2f5; /* Softer, lighter background */
+    color: #444; /* Slightly softer text color */
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px; /* Increased margin */
     background-color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px 30px; /* Increased padding */
+    border-radius: 10px; /* Slightly more rounded */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Softer shadow */
 }
 
 h1 {
-    color: #0056b3;
+    color: #333; /* Softer h1 color */
     margin: 0;
 }
 
 .language-switcher {
     display: flex;
-    gap: 10px;
+    gap: 15px; /* More spacing */
 }
 
 .flag-icon {
-    width: 30px;
-    height: 20px;
+    width: 35px; /* Slightly larger */
+    height: 23px;
     cursor: pointer;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    opacity: 0.6;
-    transition: opacity 0.3s ease;
+    border: none; /* No default border */
+    border-radius: 4px;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+.flag-icon:hover {
+    opacity: 0.9;
+    transform: translateY(-2px); /* Slight lift on hover */
 }
 
 .flag-icon.active {
     opacity: 1;
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: 2px solid #007bff; /* Use outline for active state */
+    outline-offset: 2px;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3); /* More prominent shadow for active */
 }
 
 main {
-    max-width: 800px;
-    margin: 20px auto;
+    max-width: 860px; /* Slightly wider */
+    margin: 30px auto; /* More vertical margin */
     background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 40px; /* Increased padding */
+    border-radius: 12px; /* More rounded */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08); /* Softer, deeper shadow */
 }
 
 .survey-part {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
+    margin-bottom: 40px; /* Increased margin */
+    padding-bottom: 25px; /* Increased padding */
+    border-bottom: 1px solid #e0e0e0; /* Softer border */
 }
 
 .survey-part:last-of-type {
@@ -65,79 +72,101 @@ main {
 }
 
 h2 {
-    color: #0056b3;
-    border-bottom: 2px solid #0056b3;
-    padding-bottom: 10px;
+    color: #333; /* Softer h2 color */
+    border-bottom: 2px solid #aeb6bf; /* Softer border color for h2 */
+    padding-bottom: 12px;
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .question {
-    margin-bottom: 20px;
-    background-color: #f9f9f9;
-    padding: 15px;
-    border-radius: 6px;
-    border: 1px solid #e0e0e0;
+    margin-bottom: 18px;
+    background-color: #ffffff; /* Pure white background for cards */
+    padding: 20px; /* Increased padding */
+    border-radius: 10px; /* More rounded corners */
+    border: 1px solid #e0e0e0; /* Subtle border */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Subtle card shadow */
+    transition: transform 0.2s ease-in-out;
+}
+
+.question:hover {
+    transform: translateY(-3px); /* Slight lift on hover */
 }
 
 .question p {
-    font-weight: bold;
+    font-weight: 600; /* Bolder font weight */
     margin-top: 0;
-    margin-bottom: 10px;
-    color: #555;
+    margin-bottom: 15px; /* Increased margin */
+    color: #333; /* Darker, more prominent question text */
 }
 
 .question label {
-    display: block;
-    margin-bottom: 8px;
+    display: flex; /* Use flex for alignment */
+    align-items: center;
+    margin-bottom: 10px; /* More spacing */
     cursor: pointer;
+    padding: 8px 10px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.question label:hover {
+    background-color: #f5f5f5; /* Light hover background */
 }
 
 .question input[type="radio"] {
-    margin-right: 10px;
-    transform: scale(1.1);
+    margin-right: 12px; /* More spacing */
+    transform: scale(1.2); /* Slightly larger radio buttons */
     cursor: pointer;
+    accent-color: #007bff; /* Accent color for radio button */
 }
 
 button[type="submit"] {
     display: block;
     width: 100%;
-    padding: 15px;
-    background-color: #007bff;
+    padding: 18px; /* Larger padding */
+    background-color: #007bff; /* A consistent primary blue */
     color: white;
     border: none;
-    border-radius: 5px;
-    font-size: 18px;
+    border-radius: 8px; /* More rounded */
+    font-size: 19px; /* Slightly larger font */
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 30px;
+    transition: all 0.3s ease;
+    margin-top: 40px; /* Increased margin */
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3); /* Subtle shadow */
 }
 
 button[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker blue on hover */
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+    transform: translateY(-2px); /* Slight lift */
 }
 
 #results {
-    margin-top: 40px;
-    padding: 25px;
-    background-color: #e9f7ef;
-    border: 1px solid #c3e6cb;
-    border-radius: 8px;
-    color: #155724;
+    margin-top: 50px; /* Increased margin */
+    padding: 30px; /* Increased padding */
+    background-color: #e6f7ff; /* A very light, soft blue background */
+    border: 1px solid #b3e0ff; /* Softer blue border */
+    border-radius: 10px; /* More rounded */
+    color: #004085; /* Darker blue text for contrast */
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.1); /* Subtle shadow */
 }
 
 #results h2 {
-    color: #155724;
-    border-bottom-color: #155724;
+    color: #004085; /* Darker blue for h2 */
+    border-bottom-color: #80caff; /* Lighter blue for border */
+    margin-bottom: 20px;
 }
 
 #results p {
-    font-size: 1.1em;
-    margin-bottom: 10px;
+    font-size: 1.15em; /* Slightly larger font */
+    margin-bottom: 12px;
+    color: #333; /* General text color for results */
 }
 
 #overall-skin-type {
-    font-weight: bold;
-    color: #0056b3;
-    font-size: 1.2em;
+    font-weight: 700; /* Bolder font weight */
+    color: #0056b3; /* Consistent accent color */
+    font-size: 1.3em; /* More prominent */
 }
