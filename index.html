@@ -1,113 +1,195 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T177SW2F2T"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-T177SW2F2T');
-    </script>
-    <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "v9mw928sp1");
-</script>
-    <script>
-      window.Userback = window.Userback || {};
-      Userback.access_token = "A-djObG6HRwxHZRbKuEc99xPr96";
-      (function(d) {
-        var s = d.createElement('script');s.async = true;s.src = 'https://static.userback.io/widget/v1.js';(d.head || d.body).appendChild(s);
-      })(document);
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-adsense-account" content="ca-pub-3677451737213931">
-    <title>맛집 탐험가 맛집</title>
-    <meta name="description" content="맛집 탐험가와 함께 전 세계 도시와 역 주변의 숨은 맛집을 찾아보세요. 실제 방문객 리뷰 기반의 신뢰할 수 있는 맛집을 추천해드립니다.">
-    <link rel="canonical" href="https://plus-skin.com/" />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://plus-skin.com/">
-    <meta property="og:title" content="맛집 탐험가: 도시와 역 이름으로 찾는 최고의 맛집">
-    <meta property="og:description" content="맛집 탐험가와 함께 전 세계 도시와 역 주변의 숨은 맛집을 찾아보세요. 실제 방문객 리뷰 기반의 신뢰할 수 있는 맛집을 추천해드립니다.">
-    <meta property="og:image" content="https://plus-skin.com/images/ny-pizza.jpg">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://plus-skin.com/">
-    <meta property="twitter:title" content="맛집 탐험가: 도시와 역 이름으로 찾는 최고의 맛집">
-    <meta property="twitter:description" content="맛집 탐험가와 함께 전 세계 도시와 역 주변의 숨은 맛집을 찾아보세요. 실제 방문객 리뷰 기반의 신뢰할 수 있는 맛집을 추천해드립니다.">
-    <meta property="twitter:image" content="https://plus-skin.com/images/ny-pizza.jpg">
-
-    <link rel="icon" href="images/ny-pizza.jpg" type="image/jpeg">
-    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="style.css"></noscript>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3677451737213931"
-     crossorigin="anonymous"></script>
+    <title data-lang-key="title">Skin Type Survey</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="site-header">
-        <h1>맛집 탐험가</h1>
-        <p>도시와 역 이름으로 최고의 맛집을 찾아보세요</p>
+    <header>
+        <h1 data-lang-key="main-title">Skin Type Survey for Foreigners</h1>
+        <div class="language-switcher">
+            <img src="images/flags/us.png" alt="English" data-lang="en" class="flag-icon active">
+            <img src="images/flags/kr.png" alt="Korean" data-lang="ko" class="flag-icon">
+        </div>
     </header>
 
-    <main class="container">
-        <!-- standard1 -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-3677451737213931"
-             data-ad-slot="3562996860"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-        <form id="search-form" class="search-form">
-            <input type="text" id="search-input" placeholder="예: 로마역 맛집" required>
-            <button type="submit">검색</button>
+    <main>
+        <form id="skin-survey-form">
+            <!-- Part 1: Oil (O) vs Dry (D) -->
+            <section class="survey-part" data-part="part1">
+                <h2 data-lang-key="part1-title">Part 1. Oil (O) vs Dry (D)</h2>
+                <div class="question">
+                    <p data-lang-key="q1-p1">After washing your face and applying nothing, does your face feel tight?</p>
+                    <label><input type="radio" name="q1-p1" value="1"> <span data-lang-key="q1-p1-opt1">① Never</span></label>
+                    <label><input type="radio" name="q1-p1" value="2"> <span data-lang-key="q1-p1-opt2">② Sometimes</span></label>
+                    <label><input type="radio" name="q1-p1" value="3"> <span data-lang-key="q1-p1-opt3">③ Often</span></label>
+                    <label><input type="radio" name="q1-p1" value="4"> <span data-lang-key="q1-p1-opt4">④ Always severely</span></label>
+                </div>
+                <div class="question">
+                    <p data-lang-key="q2-p1">How much oil usually appears on your nose or forehead (T-zone)?</p>
+                    <label><input type="radio" name="q2-p1" value="1"> <span data-lang-key="q2-p1-opt1">① A lot</span></label>
+                    <label><input type="radio" name="q2-p1" value="2"> <span data-lang-key="q2-p1-opt2">② A little</span></label>
+                    <label><input type="radio" name="q2-p1" value="3"> <span data-lang-key="q2-p1-opt3">③ Rarely</span></label>
+                    <label><input type="radio" name="q2-p1" value="4"> <span data-lang-key="q2-p1-opt4">④ None at all</span></label>
+                </div>
+                <div class="question">
+                    <p data-lang-key="q3-p1">When you look in the mirror, what is the size of your pores?</p>
+                    <label><input type="radio" name="q3-p1" value="1"> <span data-lang-key="q3-p1-opt1">① Very large</span></label>
+                    <label><input type="radio" name="q3-p1" value="2"> <span data-lang-key="q3-p1-opt2">② Average</span></label>
+                    <label><input type="radio" name="q3-p1" value="3"> <span data-lang-key="q3-p1-opt3">③ Small</span></label>
+                    <label><input type="radio" name="q3-p1" value="4"> <span data-lang-key="q3-p1-opt4">④ Hardly visible</span></label>
+                </div>
+                <div class="question">
+                    <p data-lang-key="q4-p1">In the afternoon, does your makeup smudge or clump due to oil?</p>
+                    <label><input type="radio" name="q4-p1" value="1"> <span data-lang-key="q4-p1-opt1">① Always</span></label>
+                    <label><input type="radio" name="q4-p1" value="2"> <span data-lang-key="q4-p1-opt2">② Sometimes</span></label>
+                    <label><input type="radio" name="q4-p1" value="3"> <span data-lang-key="q4-p1-opt3">③ Rarely</span></label>
+                    <label><input type="radio" name="q4-p1" value="4"> <span data-lang-key="q4-p1-opt4">④ If I don't wear makeup, my skin cracks</span></label>
+                </div>
+                <div class="question">
+                    <p data-lang-key="q5-p1">Do you often experience dead skin cells on your face?</p>
+                    <label><input type="radio" name="q5-p1" value="1"> <span data-lang-key="q5-p1-opt1">① Never</span></label>
+                    <label><input type="radio" name="q5-p1" value="2"> <span data-lang-key="q5-p1-opt2">② Sometimes</span></label>
+                    <label><input type="radio" name="q5-p1" value="3"> <span data-lang-key="q5-p1-opt3">③ Often</span></label>
+                    <label><input type="radio" name="q5-p1" value="4"> <span data-lang-key="q5-p1-opt4">④ Very severe, appears white and flaky</span></label>
+                </div>
+            </section>
+
+            <!-- Part 2: Sensitive (S) vs Resistant (R) -->
+            <section class="survey-part" data-part="part2">
+                <h2 data-lang-key="part2-title">Part 2. Sensitive (S) vs Resistant (R)</h2>
+                <div class="question">
+                    <p data-lang-key="q1-p2">When you change cosmetics, do you experience skin troubles or itching?</p>
+                    <label><input type="radio" name="q1-p2" value="1"> <span data-lang-key="q1-p2-opt1">① Very often</span></label>
+                    <label><input type="radio" name="q1-p2" value="2"> <span data-lang-key="q1-p2-opt2">② Sometimes</span></label>
+                    <label><input type="radio" name="q1-p2" value="3"> <span data-lang-key="q1-p2-opt3">③ Rarely</span></label>
+                    <label><input type="radio" name="q1-p2" value="4"> <span data-lang-key="q1-p2-opt4">④ Never</span></label>
+                </div>
+                <div class="question">
+                    <p data-lang-key="q2-p2">Does your face turn red when you drink alcohol or eat spicy food?</p>
+                    <label><input type="radio" name="q2-p2" value="1"> <span data-lang-key="q2-p2-opt1">① Immediately turns red</span></label>
+                    <label><input type="radio" name="q2-p2" value="2"> <span data-lang-key="q2-p2-opt2">② Slightly red</span></label>
+                    <label><input type="radio" name="q2-p2" value="3"> <span data-lang-key="q2-p2-opt3">③ Hardly any change</span></label>
+                    <label><input type="radio" name="q2-p2" value="4"> <span data-lang-key="q2-p2-opt4">④ Not at all</span></label>
+                </div>
+                <div class="question">
+                    <p data-lang-key="q3-p2">Does your skin sting after only 20 minutes in the sun without sunscreen?</p>
+                    <label><input type="radio" name="q3-p2" value="1"> <span data-lang-key="q3-p2-opt1">① Very stingy</span></label>
+                    <label><input type="radio" name="q3-p2" value="2"> <span data-lang-key="q3-p2-opt2">② Slightly stingy</span></label>
+                    <label><input type="radio" name="q3-p2" value="3"> <span data-lang-key="q3-p2-opt3">③ So-so</span></label>
+                    <label><input type="radio" name="q3-p2" value="4"> <span data-lang-key="q3-p2-opt4">④ Not at all</span></label>
+                </div>
+                <div class="question">
+                    <p data-lang-key="q4-p2">Do you have visible capillaries or redness on your face?</p>
+                    <label><input type="radio" name="q4-p2" value="1"> <span data-lang-key="q4-p2-opt1">① Very severe</span></label>
+                    <label><input type="radio" name="q4-p2" value="2"> <span data-lang-key="q4-p2-opt2">② Slightly visible</span></label>
+                    <label><input type="radio" name="q4-p2" value="3"> <span data-lang-key="q4-p2-opt3">③ Hardly any</span></label>
+                    <label><input type="radio" name="q4-p2" value="4"> <span data-lang-key="q4-p2-opt4">④ None at all</span></label>
+                </div>
+                <div class="question">
+                    <p data-lang-key="q5-p2">Have you ever suffered from skin conditions such as atopy or seborrheic dermatitis?</p>
+                    <label><input type="radio" name="q5-p2" value="1"> <span data-lang-key="q5-p2-opt1">① Yes</span></label>
+                    <label><input type="radio" name="q5-p2" value="2"> <span data-lang-key="q5-p2-opt2">② Suspected</span></label>
+                    <label><input type="radio" name="q5-p2" value="3"> <span data-lang-key="q5-p2-opt3">③ No</span></label>
+                    <label><input type="radio" name="q5-p2" value="4"> <span data-lang-key="q5-p2-opt4">④ Very healthy</span></label>
+                </div>
+            </section>
+
+            <!-- Part 3: Pigmented (P) vs Non-Pigmented (N) -->
+            <section class="survey-part" data-part="part3">
+                <h2 data-lang-key="part3-title">Part 3. Pigmented (P) vs Non-Pigmented (N)</h2>
+                <div class="question">
+                    <p data-lang-key="q1-p3">Do brown marks always remain after acne or wounds?</p>
+                    <label><input type="radio" name="q1-p3" value="1"> <span data-lang-key="q1-p3-opt1">① Always</span></label>
+                    <label><input type="radio" name="q1-p3" value="2"> <span data-lang-key="q1-p3-opt2">② Sometimes</span></label>
+                    <label><input type="radio" name="q1-p3" value="3"> <span data-lang-key="q1-p3-opt3">③ Rarely</span></label>
+                    <label><input type="radio" name="q1-p3" value="4"> <span data-lang-key="q1-p3-opt4">④ Never</span></label>
+                </div>
+                <div class="question">
+                    <p data-lang-key="q2-p3">Do you have noticeable blemishes, freckles, or spots on your face?</p>
+                    <label><input type="radio" name="q2-p3" value="1"> <span data-lang-key="q2-p3-opt1">① Very many</span></label>
+                    <label><input type="radio" name="q2-p3" value="2"> <span data-lang-key="q2-p3-opt2">② Average</span></label>
+                    <label><input type="radio" name="q2-p3" value="3"> <span data-lang-key="q2-p3-opt3">③ A few</span></label>
+                    <label><input type="radio" name="q2-p3" value="4"> <span data-lang-key="q2-p3-opt4">④ Hardly any</span></label>
+                </div>
+                <div class="question">
+                    <p data-lang-key="q3-p3">Do you feel that spots are increasing compared to the past?</p>
+                    <label><input type="radio" name="q3-p3" value="1"> <span data-lang-key="q3-p3-opt1">① Definitely</span></label>
+                    <label><input type="radio" name="q3-p3" value="2"> <span data-lang-key="q3-p3-opt2">② I think so</span></label>
+                    <label><input type="radio" name="q3-p3" value="3"> <span data-lang-key="q3-p3-opt3">③ Not sure</span></label>
+                    <label><input type="radio" name="q3-p3" value="4"> <span data-lang-key="q3-p3-opt4">④ No</span></label>
+                </div>
+                <div class="question">
+                    <p data-lang-key="q4-p3">When exposed to sunlight, does your skin turn dark immediately rather than red?</p>
+                    <label><input type="radio" name="q4-p3" value="1"> <span data-lang-key="q4-p3-opt1">① Yes</span></label>
+                    <label><input type="radio" name="q4-p3" value="2"> <span data-lang-key="q4-p3-opt2">② Slightly</span></label>
+                    <label><input type="radio" name="q4-p3" value="3"> <span data-lang-key="q4-p3-opt3">③ Turns red then tans</span></label>
+                    <label><input type="radio" name="q4-p3" value="4"> <span data-lang-key="q4-p3-opt4">④ Only turns red</span></label>
+                </div>
+                <div class="question">
+                    <p data-lang-key="q5-p3">Is the skin color on your upper lip or cheekbones unbalanced?</p>
+                    <label><input type="radio" name="q5-p3" value="1"> <span data-lang-key="q5-p3-opt1">① Very much so</span></label>
+                    <label><input type="radio" name="q5-p3" value="2"> <span data-lang-key="q5-p3-opt2">② Slightly</span></label>
+                    <label><input type="radio" name="q5-p3" value="3"> <span data-lang-key="q5-p3-opt3">③ Hardly any</span></label>
+                    <label><input type="radio" name="q5-p3" value="4"> <span data-lang-key="q5-p3-opt4">④ Not at all</span></label>
+                </div>
+            </section>
+
+            <!-- Part 4: Wrinkles (W) vs Firmness (T) -->
+            <section class="survey-part" data-part="part4">
+                <h2 data-lang-key="part4-title">Part 4. Wrinkles (W) vs Firmness (T)</h2>
+                <div class="question">
+                    <p data-lang-key="q1-p4">Do you usually smoke or are you frequently exposed to passive smoking?</p>
+                    <label><input type="radio" name="q1-p4" value="1"> <span data-lang-key="q1-p4-opt1">① Yes</span></label>
+                    <label><input type="radio" name="q1-p4" value="2"> <span data-lang-key="q1-p4-opt2">② Used to</span></label>
+                    <label><input type="radio" name="q1-p4" value="3"> <span data-lang-key="q1-p4-opt3">③ Very rarely</span></label>
+                    <label><input type="radio" name="q1-p4" value="4"> <span data-lang-key="q1-p4-opt4">④ Not at all</span></label>
+                </div>
+                <div class="question">
+                    <p data-lang-key="q2-p4">When you smile, do fine lines remain around your eyes or mouth?</p>
+                    <label><input type="radio" name="q2-p4" value="1"> <span data-lang-key="q2-p4-opt1">① Already deeply etched</span></label>
+                    <label><input type="radio" name="q2-p4" value="2"> <span data-lang-key="q2-p4-opt2">② Fine lines are visible</span></label>
+                    <label><input type="radio" name="q2-p4" value="3"> <span data-lang-key="q2-p4-opt3">③ Hardly any</span></label>
+                    <label><input type="radio" name="q2-p4" value="4"> <span data-lang-key="q2-p4-opt4">④ None at all</span></label>
+                </div>
+                <div class="question">
+                    <p data-lang-key="q3-p4">Do you apply sunscreen daily (including indoors)?</p>
+                    <label><input type="radio" name="q3-p4" value="1"> <span data-lang-key="q3-p4-opt1">① No</span></label>
+                    <label><input type="radio" name="q3-p4" value="2"> <span data-lang-key="q3-p4-opt2">② Sometimes</span></label>
+                    <label><input type="radio" name="q3-p4" value="3"> <span data-lang-key="q3-p4-opt3">③ Only when going out</span></label>
+                    <label><input type="radio" name="q3-p4" value="4"> <span data-lang-key="q3-p4-opt4">④ Meticulously every day</span></label>
+                </div>
+                <div class="question">
+                    <p data-lang-key="q4-p4">If a pillow mark appears on your face, does it disappear quickly?</p>
+                    <label><input type="radio" name="q4-p4" value="1"> <span data-lang-key="q4-p4-opt1">① Disappears very slowly</span></label>
+                    <label><input type="radio" name="q4-p4" value="2"> <span data-lang-key="q4-p4-opt2">② Takes a while</span></label>
+                    <label><input type="radio" name="q4-p4" value="3"> <span data-lang-key="q4-p4-opt3">③ Disappears quickly</span></label>
+                    <label><input type="radio" name="q4-p4" value="4"> <span data-lang-key="q4-p4-opt4">④ No mark appears</span></label>
+                </div>
+                <div class="question">
+                    <p data-lang-key="q5-p4">Do you feel that your skin is losing elasticity and sagging?</p>
+                    <label><input type="radio" name="q5-p4" value="1"> <span data-lang-key="q5-p4-opt1">① Very severe</span></label>
+                    <label><input type="radio" name="q5-p4" value="2"> <span data-lang-key="q4-p4-opt2">② Feel it a little</span></label>
+                    <label><input type="radio" name="q5-p4" value="3"> <span data-lang-key="q5-p4-opt3">③ Still fine</span></label>
+                    <label><input type="radio" name="q5-p4" value="4"> <span data-lang-key="q5-p4-opt4">④ Very firm</span></label>
+                </div>
+            </section>
+
+            <button type="submit" data-lang-key="calculate-button">Calculate Skin Type</button>
         </form>
 
-        <hr>
-        <section id="featured-section" class="results-section">
-            <h2>추천 맛집</h2>
-            <!-- Featured restaurants will be loaded here by JavaScript -->
+        <section id="results" style="display: none;">
+            <h2 data-lang-key="results-title">Your Skin Type Result:</h2>
+            <p data-lang-key="result-p1">Part 1: <span id="result-p1-type"></span></p>
+            <p data-lang-key="result-p2">Part 2: <span id="result-p2-type"></span></p>
+            <p data-lang-key="result-p3">Part 3: <span id="result-p3-type"></span></p>
+            <p data-lang-key="result-p4">Part 4: <span id="result-p4-type"></span></p>
+            <p data-lang-key="overall-result">Overall Skin Type: <span id="overall-skin-type"></span></p>
         </section>
-        
-        <section id="results-section" class="results-section"></section>
-
-        <!-- AddToAny BEGIN -->
-        <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-        <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
-        <a class="a2a_button_facebook"></a>
-        <a class="a2a_button_mastodon"></a>
-        <a class="a2a_button_email"></a>
-        </div>
-        <script defer src="https://static.addtoany.com/menu/page.js"></script>
-        <!-- AddToAny END -->
     </main>
 
-    <footer class="site-footer about-section">
-        <h2>About 맛집 탐험가</h2>
-        <p>"맛집 탐험가"는 전 세계 도시의 숨겨진 보석 같은 맛집들을 찾아내고 공유하기 위해 만들어졌습니다. 우리는 사용자들이 여행지나 일상에서 최고의 미식 경험을 할 수 있도록 돕는 것을 목표로 합니다. 모든 추천은 실제 방문객들의 리뷰와 데이터를 기반으로 엄선됩니다.</p>
-        <div class="faq-section">
-            <h2>자주 묻는 질문</h2>
-            <div class="faq-item">
-                <h3>맛집 탐험가는 어떤 곳인가요?</h3>
-                <p>맛집 탐험가는 전 세계 도시와 역 주변의 숨겨진 맛집을 찾아 추천해 드리는 서비스입니다. 사용자 리뷰와 데이터를 기반으로 신뢰할 수 있는 정보를 제공합니다.</p>
-            </div>
-            <div class="faq-item">
-                <h3>어떻게 맛집을 검색하나요?</h3>
-                <p>검색창에 '도시명 + 역 이름 + 맛집' 형태로 검색하시면 해당 지역의 추천 맛집 목록을 확인하실 수 있습니다. 예: '로마역 맛집'</p>
-            </div>
-        </div>
-        <p>&copy; 2026 맛집 탐험가. All Rights Reserved.</p>
-    </footer>
-    
-    <script src="main.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

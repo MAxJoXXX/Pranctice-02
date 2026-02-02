@@ -1,225 +1,143 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
-
-:root {
-    --primary-color: #ff6347; /* Tomato */
-    --background-color: #fdfaf8;
-    --text-color: #333;
-    --card-bg-color: #ffffff;
-    --shadow-color: rgba(0, 0, 0, 0.08);
-}
-
 body {
-    font-family: 'Open Sans', 'Noto Sans KR', sans-serif;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
     margin: 0;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.site-header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 30px 20px;
-    text-align: center;
-    box-shadow: 0 4px 12px var(--shadow-color);
-}
-
-.site-header h1 {
+h1 {
+    color: #0056b3;
     margin: 0;
-    font-size: 2.5em;
-    font-weight: 700;
 }
 
-.site-header p {
-    margin: 5px 0 0;
-    font-size: 1.1em;
-}
-
-.container {
-    width: 90%;
-    max-width: 800px;
-    margin: 40px auto;
-    flex-grow: 1;
-}
-
-.search-form {
+.language-switcher {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
 }
 
-#search-input {
-    flex-grow: 1;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 1em;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-#search-input:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 4px rgba(255, 99, 71, 0.2);
-}
-
-.search-form button {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 0 25px;
-    border-radius: 8px;
-    font-size: 1.1em;
-    font-weight: 700;
+.flag-icon {
+    width: 30px;
+    height: 20px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
 }
 
-.search-form button:hover {
-    background-color: #e5533d;
+.flag-icon.active {
+    opacity: 1;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-hr {
-    border: none;
-    border-top: 1px solid #eee;
-    margin: 40px 0;
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.results-section {
-    display: grid;
-    gap: 25px;
+.survey-part {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
 }
 
-#featured-section h2 {
-    font-size: 1.8em;
-    color: var(--primary-color);
-    margin-bottom: 20px;
+.survey-part:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
 }
 
-.restaurant-card {
-    background-color: var(--card-bg-color);
-    border-radius: 12px;
-    box-shadow: 0 6px 20px var(--shadow-color);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.restaurant-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 28px var(--shadow-color);
-}
-
-.restaurant-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-}
-
-.restaurant-card h3 {
-    margin: 0;
-    padding: 15px 20px;
-    font-size: 1.4em;
-}
-
-.restaurant-card p {
-    padding: 0 20px;
-    font-size: 1em;
-    line-height: 1.6;
-}
-
-.restaurant-card .restaurant-details {
-    font-size: 0.9em;
-    color: #666;
-    padding: 15px 20px 5px 20px;
-}
-
-.site-footer {
-    background-color: #333;
-    color: #ccc;
-    text-align: center;
-    padding: 40px 20px;
-    margin-top: 50px;
-}
-
-.site-footer h2 {
-    color: white;
-    font-size: 1.5em;
+h2 {
+    color: #0056b3;
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 10px;
     margin-top: 0;
+    margin-bottom: 20px;
 }
 
-.site-footer p {
-    max-width: 600px;
-    margin: 10px auto;
-    line-height: 1.7;
+.question {
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
 }
 
-@media screen and (max-width: 768px) {
-    .container {
-        width: 100%;
-        margin: 20px auto;
-        padding: 0 15px;
-        box-sizing: border-box;
-    }
-
-    .site-header {
-        padding: 20px;
-    }
-
-    .site-header h1 {
-        font-size: 2em;
-    }
-
-    .site-header p {
-        font-size: 1em;
-    }
-
-    .search-form {
-        flex-direction: column;
-    }
-
-    #search-input, .search-form button {
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .restaurant-card {
-        border-radius: 10px; /* Keep some rounding */
-    }
-
-    .restaurant-card h3 {
-        font-size: 1.2em;
-    }
+.question p {
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #555;
 }
 
-.faq-section {
-    margin-top: 40px;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+.question label {
+    display: block;
+    margin-bottom: 8px;
+    cursor: pointer;
 }
 
-.faq-section h2 {
+.question input[type="radio"] {
+    margin-right: 10px;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff;
     color: white;
-    font-size: 1.5em;
-    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 30px;
 }
 
-.faq-item {
-    margin-bottom: 20px;
-    text-align: left;
+button[type="submit"]:hover {
+    background-color: #0056b3;
 }
 
-.faq-item h3 {
-    color: var(--primary-color);
+#results {
+    margin-top: 40px;
+    padding: 25px;
+    background-color: #e9f7ef;
+    border: 1px solid #c3e6cb;
+    border-radius: 8px;
+    color: #155724;
+}
+
+#results h2 {
+    color: #155724;
+    border-bottom-color: #155724;
+}
+
+#results p {
     font-size: 1.1em;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
-.faq-item p {
-    color: #ccc;
-    font-size: 0.9em;
-    line-height: 1.5;
+#overall-skin-type {
+    font-weight: bold;
+    color: #0056b3;
+    font-size: 1.2em;
 }
