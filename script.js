@@ -1,6 +1,3 @@
-
-복사
-
 const translations = {
     "en": {
         "title": "Skin Type Survey",
