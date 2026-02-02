@@ -3,67 +3,70 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 20px;
-    background-color: #f0f2f5; /* Softer, lighter background */
-    color: #444; /* Slightly softer text color */
+    background-color: #f0f2f5;
+    color: #444;
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px; /* Increased margin */
+    margin-bottom: 30px;
     background-color: #fff;
-    padding: 20px 30px; /* Increased padding */
-    border-radius: 10px; /* Slightly more rounded */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Softer shadow */
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 h1 {
-    color: #333; /* Softer h1 color */
+    color: #333;
     margin: 0;
 }
 
 .language-switcher {
     display: flex;
-    gap: 15px; /* More spacing */
+    gap: 10px;
 }
 
-.flag-icon {
-    width: 35px; /* Slightly larger */
-    height: 23px;
+.lang-btn {
+    padding: 8px 16px;
+    border: 2px solid #e0e0e0;
+    background-color: #fff;
+    color: #666;
+    border-radius: 6px;
     cursor: pointer;
-    border: none; /* No default border */
-    border-radius: 4px;
-    opacity: 0.7;
+    font-size: 14px;
+    font-weight: 500;
     transition: all 0.3s ease;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Subtle shadow */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.flag-icon:hover {
-    opacity: 0.9;
-    transform: translateY(-2px); /* Slight lift on hover */
+.lang-btn:hover {
+    background-color: #f5f5f5;
+    border-color: #007bff;
+    transform: translateY(-2px);
 }
 
-.flag-icon.active {
-    opacity: 1;
-    outline: 2px solid #007bff; /* Use outline for active state */
-    outline-offset: 2px;
-    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3); /* More prominent shadow for active */
+.lang-btn.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
 }
 
 main {
-    max-width: 860px; /* Slightly wider */
-    margin: 30px auto; /* More vertical margin */
+    max-width: 860px;
+    margin: 30px auto;
     background-color: #fff;
-    padding: 40px; /* Increased padding */
-    border-radius: 12px; /* More rounded */
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08); /* Softer, deeper shadow */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 
 .survey-part {
-    margin-bottom: 40px; /* Increased margin */
-    padding-bottom: 25px; /* Increased padding */
-    border-bottom: 1px solid #e0e0e0; /* Softer border */
+    margin-bottom: 40px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .survey-part:last-of-type {
@@ -72,8 +75,8 @@ main {
 }
 
 h2 {
-    color: #333; /* Softer h2 color */
-    border-bottom: 2px solid #aeb6bf; /* Softer border color for h2 */
+    color: #333;
+    border-bottom: 2px solid #aeb6bf;
     padding-bottom: 12px;
     margin-top: 0;
     margin-bottom: 25px;
@@ -81,29 +84,29 @@ h2 {
 
 .question {
     margin-bottom: 18px;
-    background-color: #ffffff; /* Pure white background for cards */
-    padding: 20px; /* Increased padding */
-    border-radius: 10px; /* More rounded corners */
-    border: 1px solid #e0e0e0; /* Subtle border */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Subtle card shadow */
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     transition: transform 0.2s ease-in-out;
 }
 
 .question:hover {
-    transform: translateY(-3px); /* Slight lift on hover */
+    transform: translateY(-3px);
 }
 
 .question p {
-    font-weight: 600; /* Bolder font weight */
+    font-weight: 600;
     margin-top: 0;
-    margin-bottom: 15px; /* Increased margin */
-    color: #333; /* Darker, more prominent question text */
+    margin-bottom: 15px;
+    color: #333;
 }
 
 .question label {
-    display: flex; /* Use flex for alignment */
+    display: flex;
     align-items: center;
-    margin-bottom: 10px; /* More spacing */
+    margin-bottom: 10px;
     cursor: pointer;
     padding: 8px 10px;
     border-radius: 6px;
@@ -111,62 +114,62 @@ h2 {
 }
 
 .question label:hover {
-    background-color: #f5f5f5; /* Light hover background */
+    background-color: #f5f5f5;
 }
 
 .question input[type="radio"] {
-    margin-right: 12px; /* More spacing */
-    transform: scale(1.2); /* Slightly larger radio buttons */
+    margin-right: 12px;
+    transform: scale(1.2);
     cursor: pointer;
-    accent-color: #007bff; /* Accent color for radio button */
+    accent-color: #007bff;
 }
 
 button[type="submit"] {
     display: block;
     width: 100%;
-    padding: 18px; /* Larger padding */
-    background-color: #007bff; /* A consistent primary blue */
+    padding: 18px;
+    background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 8px; /* More rounded */
-    font-size: 19px; /* Slightly larger font */
+    border-radius: 8px;
+    font-size: 19px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 40px; /* Increased margin */
-    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3); /* Subtle shadow */
+    margin-top: 40px;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
 }
 
 button[type="submit"]:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3;
     box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
-    transform: translateY(-2px); /* Slight lift */
+    transform: translateY(-2px);
 }
 
 #results {
-    margin-top: 50px; /* Increased margin */
-    padding: 30px; /* Increased padding */
-    background-color: #e6f7ff; /* A very light, soft blue background */
-    border: 1px solid #b3e0ff; /* Softer blue border */
-    border-radius: 10px; /* More rounded */
-    color: #004085; /* Darker blue text for contrast */
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.1); /* Subtle shadow */
+    margin-top: 50px;
+    padding: 30px;
+    background-color: #e6f7ff;
+    border: 1px solid #b3e0ff;
+    border-radius: 10px;
+    color: #004085;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.1);
 }
 
 #results h2 {
-    color: #004085; /* Darker blue for h2 */
-    border-bottom-color: #80caff; /* Lighter blue for border */
+    color: #004085;
+    border-bottom-color: #80caff;
     margin-bottom: 20px;
 }
 
 #results p {
-    font-size: 1.15em; /* Slightly larger font */
+    font-size: 1.15em;
     margin-bottom: 12px;
-    color: #333; /* General text color for results */
+    color: #333;
 }
 
 #overall-skin-type {
-    font-weight: 700; /* Bolder font weight */
-    color: #0056b3; /* Consistent accent color */
-    font-size: 1.3em; /* More prominent */
+    font-weight: 700;
+    color: #0056b3;
+    font-size: 1.3em;
 }

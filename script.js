@@ -1,3 +1,6 @@
+
+복사
+
 const translations = {
     "en": {
         "title": "Skin Type Survey",
@@ -117,6 +120,7 @@ const translations = {
         "result-p4": "Part 4: ",
         "overall-result": "Overall Skin Type: ",
         "skin-type-details-intro": "Below are the 16 Baumann skin type results. Find your 4-letter alphanumeric combination from the survey to check your results. It contains the characteristics and key management strategies for each type.",
+        "alert-unanswered": "Please answer all questions before calculating your skin type.",
         "skinTypeDetails": {
             "OSPW": {
                 "title": "OSPW (Most Demanding Type)",
@@ -128,13 +132,13 @@ const translations = {
                 "characteristics": "This type has a lot of oil and frequent troubles, leaving scars (post-inflammatory hyperpigmentation) easily. Gentle soothing and brightening care are key.",
                 "management": "Core Management: Gentle soothing and brightening care."
             },
-            "OSRW": {
-                "title": "OSRW (Rosacea-prone Oily Skin)",
+            "OSNW": {
+                "title": "OSNW (Rosacea-prone Oily Skin)",
                 "characteristics": "This type has a lot of oil but few blemishes. However, the skin is very red, sensitive, and prone to wrinkles, requiring caution against 'heat aging'.",
                 "management": "Core Management: Caution against 'heat aging'."
             },
-            "OSRT": {
-                "title": "OSRT (Typical Oily Sensitive)",
+            "OSNT": {
+                "title": "OSNT (Typical Oily Sensitive)",
                 "characteristics": "The skin is red and prone to troubles, but hyperpigmentation is less common. Focusing on oil-water balance and soothing care will quickly improve it.",
                 "management": "Core Management: Oil-water balance and soothing care."
             },
@@ -148,13 +152,13 @@ const translations = {
                 "characteristics": "The skin is strong and has few wrinkles, but oiliness and blemishes are concerns. Regular exfoliation and proper sunscreen application are sufficient.",
                 "management": "Core Management: Regular exfoliation and proper sunscreen application."
             },
-            "ORRW": {
-                "title": "ORRW (Strong Oily Aging)",
+            "ORNW": {
+                "title": "ORNW (Strong Oily Aging)",
                 "characteristics": "No blemishes and healthy skin, but excessive oil and wrinkles are concerns. Focus on sebum control and elasticity care.",
                 "management": "Core Management: Sebum control and elasticity care."
             },
-            "ORRT": {
-                "title": "ORRT (Most Ideal Oily Skin)",
+            "ORNT": {
+                "title": "ORNT (Most Ideal Oily Skin)",
                 "characteristics": "The skin barrier is very strong and clear. If you just manage oiliness slightly, it's the best type to hear compliments like 'celebrity skin'.",
                 "management": "Core Management: Slight oiliness management."
             },
@@ -168,13 +172,13 @@ const translations = {
                 "characteristics": "Due to dryness, the skin becomes sensitive, making blemishes appear more easily. Increasing skin defense through hydration is key.",
                 "management": "Core Management: Increasing skin defense through hydration."
             },
-            "DSRW": {
-                "title": "DSRW (White Paper Skin)",
+            "DSNW": {
+                "title": "DSNW (White Paper Skin)",
                 "characteristics": "No blemishes, but the skin is too thin and dry, leading to deep wrinkles. Moisturizing and collagen management are very important.",
                 "management": "Core Management: Moisturizing and collagen management."
             },
-            "DSRT": {
-                "title": "DSRT (Dry Sensitive Type)",
+            "DSNT": {
+                "title": "DSNT (Dry Sensitive Type)",
                 "characteristics": "This dry type easily reddens due to thin skin. Gentle, moisturizing products are the answer rather than irritating functional products.",
                 "management": "Core Management: Gentle, moisturizing products."
             },
@@ -188,13 +192,13 @@ const translations = {
                 "characteristics": "Resolving dryness will significantly improve skin condition. Provide sufficient hydration and partial blemish management.",
                 "management": "Core Management: Sufficient hydration and partial blemish management."
             },
-            "DRRW": {
-                "title": "DRRW (Typical Aging Skin)",
+            "DRNW": {
+                "title": "DRNW (Typical Aging Skin)",
                 "characteristics": "The skin is relatively strong, so high-performance anti-aging products (like retinol) can be actively used. Moisturizing and wrinkle care are top priorities.",
                 "management": "Core Management: Moisturizing and wrinkle care."
             },
-            "DRRT": {
-                "title": "DRRT (Pure Dry Skin)",
+            "DRNT": {
+                "title": "DRNT (Pure Dry Skin)",
                 "characteristics": "No blemishes and good elasticity, but always thirsty for moisture. Looks the prettiest, but if care is neglected, it quickly becomes rough.",
                 "management": "Core Management: Don't neglect moisturizing care."
             }
@@ -318,6 +322,7 @@ const translations = {
         "result-p4": "Part 4: ",
         "overall-result": "전체 피부 타입: ",
         "skin-type-details-intro": "바우만 피부 타입의 16가지 결과지를 정리해 드립니다. 설문을 통해 나온 4자리 알파벳 조합을 찾아 확인해 보세요. 각 타입의 특징과 핵심 관리 전략을 담았습니다.",
+        "alert-unanswered": "피부 타입을 계산하기 전에 모든 질문에 답변해주세요.",
         "skinTypeDetails": {
             "OSPW": {
                 "title": "OSPW (가장 까다로운 타입)",
@@ -329,13 +334,13 @@ const translations = {
                 "characteristics": "유분이 많고 트러블이 잦으며 그 자리에 흉터(색소침착)가 잘 남습니다. 자극 없는 진정과 미백 관리가 핵심입니다.",
                 "management": "핵심 관리: 자극 없는 진정과 미백 관리."
             },
-            "OSRW": {
-                "title": "OSRW (안면 홍조형 지성)",
+            "OSNW": {
+                "title": "OSNW (안면 홍조형 지성)",
                 "characteristics": "기름기는 많지만 잡티는 적습니다. 다만 피부가 매우 붉고 예민하며 주름이 생기기 쉬워 '열 노화'를 주의해야 합니다.",
                 "management": "핵심 관리: '열 노화' 주의."
             },
-            "OSRT": {
-                "title": "OSRT (전형적인 지성 민감성)",
+            "OSNT": {
+                "title": "OSNT (전형적인 지성 민감성)",
                 "characteristics": "피부가 붉고 트러블이 잘 생기지만 색소침착은 적은 편입니다. 유수분 밸런스와 진정에만 집중하면 금방 좋아집니다.",
                 "management": "핵심 관리: 유수분 밸런스와 진정."
             },
@@ -349,13 +354,13 @@ const translations = {
                 "characteristics": "피부가 튼튼하고 주름도 적지만 기름기와 잡티가 고민입니다. 정기적인 각질 제거와 선크림만 잘 발라도 충분합니다.",
                 "management": "핵심 관리: 정기적인 각질 제거와 선크림."
             },
-            "ORRW": {
-                "title": "ORRW (튼튼한 지성 노화)",
+            "ORNW": {
+                "title": "ORNW (튼튼한 지성 노화)",
                 "characteristics": "잡티도 없고 피부도 건강하지만, 과도한 유분과 주름이 고민입니다. 피지 조절과 탄력 케어에 집중하세요.",
                 "management": "핵심 관리: 피지 조절과 탄력 케어."
             },
-            "ORRT": {
-                "title": "ORRT (가장 이상적인 지성)",
+            "ORNT": {
+                "title": "ORNT (가장 이상적인 지성)",
                 "characteristics": "피부 장벽이 매우 튼튼하고 투명합니다. 기름기만 살짝 잡아주면 연예인 피부 소리를 듣기 가장 좋은 타입입니다.",
                 "management": "핵심 관리: 가벼운 기름기 관리."
             },
@@ -369,13 +374,13 @@ const translations = {
                 "characteristics": "건조함 때문에 피부가 예민해져 잡티가 더 잘 올라오는 타입입니다. 수분 공급을 통해 피부 방어력을 높여야 합니다.",
                 "management": "핵심 관리: 수분 공급을 통한 피부 방어력 강화."
             },
-            "DSRW": {
-                "title": "DSRW (하얀 종이 피부)",
+            "DSNW": {
+                "title": "DSNW (하얀 종이 피부)",
                 "characteristics": "잡티는 없지만 피부가 너무 얇고 건조해서 주름이 깊게 생깁니다. 보습과 함께 콜라겐 관리가 매우 중요합니다.",
                 "management": "핵심 관리: 보습과 콜라겐 관리."
             },
-            "DSRT": {
-                "title": "DSRT (건성 민감형)",
+            "DSNT": {
+                "title": "DSNT (건성 민감형)",
                 "characteristics": "피부가 얇아 쉽게 붉어지는 건성 타입입니다. 자극적인 기능성 제품보다는 보습 위주의 순한 제품이 정답입니다.",
                 "management": "핵심 관리: 보습 위주의 순한 제품."
             },
@@ -389,13 +394,13 @@ const translations = {
                 "characteristics": "건조함만 해결하면 피부 컨디션이 확 살아납니다. 보습을 충분히 하면서 부분적인 잡티 관리만 해주세요.",
                 "management": "핵심 관리: 충분한 보습과 부분적인 잡티 관리."
             },
-            "DRRW": {
-                "title": "DRRW (전형적인 노화 피부)",
+            "DRNW": {
+                "title": "DRNW (전형적인 노화 피부)",
                 "characteristics": "피부가 튼튼한 편이라 고기능성 안티에이징 제품(레티놀 등)을 적극적으로 써도 좋습니다. 보습과 주름 관리가 1순위입니다.",
                 "management": "핵심 관리: 보습과 주름 관리."
             },
-            "DRRT": {
-                "title": "DRRT (청순한 건조 피부)",
+            "DRNT": {
+                "title": "DRNT (청순한 건조 피부)",
                 "characteristics": "잡티도 없고 탄력도 좋지만, 늘 수분이 배고픈 상태입니다. 겉보기에 가장 예뻐 보이지만 관리를 쉬면 금방 푸석해집니다.",
                 "management": "핵심 관리: 꾸준한 보습 관리."
             }
@@ -415,18 +420,18 @@ const updateContent = (lang) => {
 };
 
 const setupLanguageSwitcher = () => {
-    const flagIcons = document.querySelectorAll('.flag-icon');
-    flagIcons.forEach(icon => {
-        icon.classList.remove('active');
-        if (icon.getAttribute('data-lang') === currentLang) {
-            icon.classList.add('active');
+    const langBtns = document.querySelectorAll('.lang-btn');
+    langBtns.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-lang') === currentLang) {
+            btn.classList.add('active');
         }
-        icon.addEventListener('click', () => {
-            currentLang = icon.getAttribute('data-lang');
+        btn.addEventListener('click', () => {
+            currentLang = btn.getAttribute('data-lang');
             localStorage.setItem('lang', currentLang);
             updateContent(currentLang);
-            flagIcons.forEach(f => f.classList.remove('active'));
-            icon.classList.add('active');
+            langBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
         });
     });
 };
@@ -454,6 +459,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
+
+        // Validation check for all questions
+        const allQuestionsAnswered = Array.from(document.querySelectorAll('.survey-part')).every(part => {
+            const radioButtons = part.querySelectorAll('input[type="radio"]');
+            const questionNames = new Set();
+            radioButtons.forEach(radio => questionNames.add(radio.name));
+            
+            return Array.from(questionNames).every(name => 
+                part.querySelector(`input[name="${name}"]:checked`)
+            );
+        });
+
+        if (!allQuestionsAnswered) {
+            alert(translations[currentLang]["alert-unanswered"]);
+            resultsSection.style.display = 'none'; // Hide results if validation fails
+            document.getElementById('skin-type-details').style.display = 'none';
+            return; // Stop the function
+        }
 
         let p1Score = 0; // Oily/Sensitive/Pigmented/Wrinkles
         let p2Score = 0;
@@ -534,28 +557,7 @@ document.addEventListener('DOMContentLoaded', () => {
             skinTypeDetailDiv.style.display = 'none';
         }
 
-        const skinTypeDetailsIntro = document.getElementById('skin-type-details-intro-p');
-        if (skinTypeDetailsIntro) {
-            skinTypeDetailsIntro.textContent = translations[currentLang]["skin-type-details-intro"];
-        }
 
-        const detailsTitle = document.getElementById('details-title');
-        const detailsCharacteristics = document.getElementById('details-characteristics');
-        const detailsManagement = document.getElementById('details-management');
-        const skinTypeDetailDiv = document.getElementById('skin-type-details');
-
-        if (translations[currentLang].skinTypeDetails[overallSkinType]) {
-            const detail = translations[currentLang].skinTypeDetails[overallSkinType];
-            detailsTitle.textContent = detail.title;
-            detailsCharacteristics.textContent = detail.characteristics;
-            detailsManagement.textContent = detail.management;
-            skinTypeDetailDiv.style.display = 'block';
-        } else {
-            detailsTitle.textContent = '';
-            detailsCharacteristics.textContent = '';
-            detailsManagement.textContent = '';
-            skinTypeDetailDiv.style.display = 'none';
-        }
         
         resultsSection.style.display = 'block';
 
