@@ -559,10 +559,19 @@ document.addEventListener('DOMContentLoaded', () => {
         resultsSection.style.display = 'block';
 
         // Update results text with current language
-        document.getElementById('result-p1-type').previousSibling.textContent = translations[currentLang]["result-p1"];
-        document.getElementById('result-p2-type').previousSibling.textContent = translations[currentLang]["result-p2"];
-        document.getElementById('result-p3-type').previousSibling.textContent = translations[currentLang]["result-p3"];
-        document.getElementById('result-p4-type').previousSibling.textContent = translations[currentLang]["result-p4"];
-        document.getElementById('overall-skin-type').previousSibling.textContent = translations[currentLang]["overall-result"];
+        const p1Span = document.getElementById('result-p1-type');
+        if (p1Span) p1Span.textContent = translations[currentLang]["result-p1"] + p1Span.textContent;
+        
+        const p2Span = document.getElementById('result-p2-type');
+        if (p2Span) p2Span.textContent = translations[currentLang]["result-p2"] + p2Span.textContent;
+
+        const p3Span = document.getElementById('result-p3-type');
+        if (p3Span) p3Span.textContent = translations[currentLang]["result-p3"] + p3Span.textContent;
+
+        const p4Span = document.getElementById('result-p4-type');
+        if (p4Span) p4Span.textContent = translations[currentLang]["result-p4"] + p4Span.textContent;
+        
+        const overallSkinTypeSpan = document.getElementById('overall-skin-type');
+        if (overallSkinTypeSpan) overallSkinTypeSpan.previousSibling.textContent = translations[currentLang]["overall-result"];
     });
 });
