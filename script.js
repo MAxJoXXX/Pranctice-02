@@ -562,20 +562,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Update results text with current language
-        const p1Span = document.getElementById('result-p1-type');
-        if (p1Span) p1Span.previousSibling.textContent = translations[currentLang]["result-p1"];
+        const p1P = document.getElementById('result-p1-type').parentElement;
+        if (p1P) p1P.setAttribute('data-lang-key', 'result-p1'); // Ensure parent has data-lang-key
         
-        const p2Span = document.getElementById('result-p2-type');
-        if (p2Span) p2Span.previousSibling.textContent = translations[currentLang]["result-p2"];
+        const p2P = document.getElementById('result-p2-type').parentElement;
+        if (p2P) p2P.setAttribute('data-lang-key', 'result-p2');
 
-        const p3Span = document.getElementById('result-p3-type');
-        if (p3Span) p3Span.previousSibling.textContent = translations[currentLang]["result-p3"];
+        const p3P = document.getElementById('result-p3-type').parentElement;
+        if (p3P) p3P.setAttribute('data-lang-key', 'result-p3');
 
-        const p4Span = document.getElementById('result-p4-type');
-        if (p4Span) p4Span.previousSibling.textContent = translations[currentLang]["result-p4"];
+        const p4P = document.getElementById('result-p4-type').parentElement;
+        if (p4P) p4P.setAttribute('data-lang-key', 'result-p4');
         
-        const overallSkinTypeSpan = document.getElementById('overall-skin-type');
-        if (overallSkinTypeSpan) overallSkinTypeSpan.previousSibling.textContent = translations[currentLang]["overall-result"];
+        const overallP = document.getElementById('overall-skin-type').parentElement;
+        if (overallP) overallP.setAttribute('data-lang-key', 'overall-result');
+
+        // After setting data-lang-key, update all content to refresh the labels
+        updateContent(currentLang);
+
 
 
         // Smooth scroll to results section
