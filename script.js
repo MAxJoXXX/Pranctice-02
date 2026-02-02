@@ -411,27 +411,32 @@ const translations = {
 let currentLang = localStorage.getItem('lang') || 'en';
 
 const updateContent = (lang) => {
+    console.log('Updating content for language:', lang); // Debug log
     document.querySelectorAll('[data-lang-key]').forEach(element => {
         const key = element.getAttribute('data-lang-key');
         if (translations[lang] && translations[lang][key]) {
             element.textContent = translations[lang][key];
+            console.log(`Key: ${key}, Value: ${translations[lang][key]}`); // Debug log
+        } else {
+            console.warn(`Translation missing for key: ${key} in language: ${lang}`); // Debug log
         }
     });
 };
 
 const setupLanguageSwitcher = () => {
-    const langBtns = document.querySelectorAll('.lang-btn');
-    langBtns.forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.getAttribute('data-lang') === currentLang) {
-            btn.classList.add('active');
+    const flagIcons = document.querySelectorAll('.flag-icon'); // Corrected selector
+    flagIcons.forEach(icon => { // Changed btn to icon
+        icon.classList.remove('active');
+        if (icon.getAttribute('data-lang') === currentLang) {
+            icon.classList.add('active');
         }
-        btn.addEventListener('click', () => {
-            currentLang = btn.getAttribute('data-lang');
+        icon.addEventListener('click', () => { // Changed btn to icon
+            currentLang = icon.getAttribute('data-lang'); // Changed btn to icon
             localStorage.setItem('lang', currentLang);
+            console.log('Language changed to:', currentLang); // Debug log
             updateContent(currentLang);
-            langBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+            flagIcons.forEach(f => f.classList.remove('active'));
+            icon.classList.add('active'); // Changed btn to icon
         });
     });
 };
@@ -451,121 +456,372 @@ const calculateResult = (partName, total) => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+
+
+    console.log('DOM Content Loaded. Initializing...'); // Debug log
+
+
     updateContent(currentLang);
+
+
     setupLanguageSwitcher();
 
+
+
+
+
     const form = document.getElementById('skin-survey-form');
+
+
     const resultsSection = document.getElementById('results');
 
+
+
+
+
     form.addEventListener('submit', (event) => {
+
+
         event.preventDefault();
 
+
+        console.log('Form submitted.'); // Debug log
+
+
+
+
+
         // Validation check for all questions
+
+
         const allQuestionsAnswered = Array.from(document.querySelectorAll('.survey-part')).every(part => {
+
+
             const radioButtons = part.querySelectorAll('input[type="radio"]');
+
+
             const questionNames = new Set();
+
+
             radioButtons.forEach(radio => questionNames.add(radio.name));
+
+
             
+
+
             return Array.from(questionNames).every(name => 
+
+
                 part.querySelector(`input[name="${name}"]:checked`)
+
+
             );
+
+
         });
+
+
+
+
 
         if (!allQuestionsAnswered) {
+
+
             alert(translations[currentLang]["alert-unanswered"]);
+
+
             resultsSection.style.display = 'none'; // Hide results if validation fails
+
+
             document.getElementById('skin-type-details').style.display = 'none';
+
+
+            console.warn('Validation failed: Not all questions answered.'); // Debug log
+
+
             return; // Stop the function
+
+
         }
 
+
+
+
+
         let p1Score = 0; // Oily/Sensitive/Pigmented/Wrinkles
+
+
         let p2Score = 0;
+
+
         let p3Score = 0;
+
+
         let p4Score = 0;
 
+
+
+
+
         // Part 1: Oil (O) vs Dry (D)
+
+
         // O is 1,2. D is 3,4. Score O by counting 1s and 2s.
+
+
         document.querySelectorAll('input[name^="q"][name$="-p1"]:checked').forEach(input => {
+
+
             const value = parseInt(input.value);
+
+
             if (value === 1 || value === 2) { // Based on the [계산] ①,②번이 많으면 O(지성) / ③,④번이 많으면 D(건성)
+
+
                 p1Score += 1;
+
+
             }
+
+
         });
+
+
         const resultP1 = p1Score >= 3 ? 'O (Oily)' : 'D (Dry)'; // Assuming 3 or more is "many"
 
 
+
+
+
+
+
+
         // Part 2: Sensitive (S) vs Resistant (R)
+
+
         // S is 1,2. R is 3,4. Score S by counting 1s and 2s.
+
+
         document.querySelectorAll('input[name^="q"][name$="-p2"]:checked').forEach(input => {
+
+
             const value = parseInt(input.value);
+
+
             if (value === 1 || value === 2) { // Based on the [계산] ①,②번이 많으면 S(민감성) / ③,④번이 많으면 R(저항성)
+
+
                 p2Score += 1;
+
+
             }
+
+
         });
+
+
         const resultP2 = p2Score >= 3 ? 'S (Sensitive)' : 'R (Resistant)'; // Assuming 3 or more is "many"
 
 
+
+
+
+
+
+
         // Part 3: Pigmented (P) vs Non-Pigmented (N)
+
+
         // P is 1,2. N is 3,4. Score P by counting 1s and 2s.
+
+
         document.querySelectorAll('input[name^="q"][name$="-p3"]:checked').forEach(input => {
+
+
             const value = parseInt(input.value);
+
+
             if (value === 1 || value === 2) { // Based on the [계산] ①,②번이 많으면 P(색소성) / ③,④번이 많으면 N(비색소성)
+
+
                 p3Score += 1;
+
+
             }
+
+
         });
+
+
         const resultP3 = p3Score >= 3 ? 'P (Pigmented)' : 'N (Non-Pigmented)'; // Assuming 3 or more is "many"
 
 
+
+
+
+
+
+
         // Part 4: Wrinkles (W) vs Firmness (T)
+
+
         // W is 1,2. T is 3,4. Score W by counting 1s and 2s.
+
+
         document.querySelectorAll('input[name^="q"][name$="-p4"]:checked').forEach(input => {
+
+
             const value = parseInt(input.value);
+
+
             if (value === 1 || value === 2) { // Based on the [계산] ①,②번이 많으면 W(주름형) / ③,④번이 많으면 T(탱탱함)
+
+
                 p4Score += 1;
+
+
             }
+
+
         });
+
+
         const resultP4 = p4Score >= 3 ? 'W (Wrinkles)' : 'T (Firmness)'; // Assuming 3 or more is "many"
 
+
+
+
+
         document.getElementById('result-p1-type').textContent = resultP1;
+
+
         document.getElementById('result-p2-type').textContent = resultP2;
+
+
         document.getElementById('result-p3-type').textContent = resultP3;
+
+
         document.getElementById('result-p4-type').textContent = resultP4;
 
+
+
+
+
         const overallSkinType = `${resultP1.charAt(0)}${resultP2.charAt(0)}${resultP3.charAt(0)}${resultP4.charAt(0)}`;
+
+
         document.getElementById('overall-skin-type').textContent = overallSkinType;
 
+
+        console.log('Calculated Overall Skin Type:', overallSkinType); // Debug log
+
+
+
+
+
         const skinTypeDetailsIntroP = document.getElementById('skin-type-details-intro-p');
+
+
         if (skinTypeDetailsIntroP) {
+
+
             skinTypeDetailsIntroP.textContent = translations[currentLang]["skin-type-details-intro"];
+
+
         }
 
+
+
+
+
         const detailsTitle = document.getElementById('details-title');
+
+
         const detailsCharacteristics = document.getElementById('details-characteristics');
+
+
         const detailsManagement = document.getElementById('details-management');
+
+
         const skinTypeDetailDiv = document.getElementById('skin-type-details');
 
+
+
+
+
         if (translations[currentLang].skinTypeDetails && translations[currentLang].skinTypeDetails[overallSkinType]) {
+
+
             const detail = translations[currentLang].skinTypeDetails[overallSkinType];
+
+
             detailsTitle.textContent = detail.title;
+
+
             detailsCharacteristics.textContent = detail.characteristics;
+
+
             detailsManagement.textContent = detail.management;
+
+
             skinTypeDetailDiv.style.display = 'block';
+
+
+            console.log('Displayed detailed skin type:', overallSkinType); // Debug log
+
+
         } else {
+
+
             detailsTitle.textContent = '';
+
+
             detailsCharacteristics.textContent = '';
+
+
             detailsManagement.textContent = '';
+
+
             skinTypeDetailDiv.style.display = 'none';
+
+
+            console.warn('Detailed skin type not found for:', overallSkinType); // Debug log
+
+
         }
 
 
         
+
+
         resultsSection.style.display = 'block';
 
+
+        console.log('Results section display set to block.'); // Debug log
+
+
+
+
+
         // Update results text with current language
+
+
         document.getElementById('result-p1-type').previousSibling.textContent = translations[currentLang]["result-p1"];
+
+
         document.getElementById('result-p2-type').previousSibling.textContent = translations[currentLang]["result-p2"];
+
+
         document.getElementById('result-p3-type').previousSibling.textContent = translations[currentLang]["result-p3"];
+
+
         document.getElementById('result-p4-type').previousSibling.textContent = translations[currentLang]["result-p4"];
+
+
         document.getElementById('overall-skin-type').previousSibling.textContent = translations[currentLang]["overall-result"];
+
+
     });
+
+
 });
