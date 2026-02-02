@@ -526,6 +526,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         const resultP4 = p4Score >= 3 ? 'W (Wrinkles)' : 'T (Firmness)'; // Assuming 3 or more is "many"
 
+        // 먼저 결과 섹션을 표시
+        resultsSection.style.display = 'block';
+
+        // 그 다음 결과 채우기
         document.getElementById('result-p1-type').textContent = resultP1;
         document.getElementById('result-p2-type').textContent = resultP2;
         document.getElementById('result-p3-type').textContent = resultP3;
@@ -557,10 +561,6 @@ document.addEventListener('DOMContentLoaded', () => {
             detailsManagement.textContent = '';
             skinTypeDetailDiv.style.display = 'none';
         }
-
-
-        
-        resultsSection.style.display = 'block';
 
         // 결과 섹션으로 부드럽게 스크롤
         setTimeout(() => {
