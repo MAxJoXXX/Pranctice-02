@@ -459,84 +459,104 @@ const setupLanguageSwitcher = () => {
             currentLang = btn.getAttribute('data-lang');
             localStorage.setItem('lang', currentLang);
             updateContent(currentLang);
+            displayResults();
             langBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
         });
     });
 };
 
+function displayResults() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const resultP1 = urlParams.get('p1') || '';
+    const resultP2 = urlParams.get('p2') || '';
+    const resultP3 = urlParams.get('p3') || '';
+    const resultP4 = urlParams.get('p4') || '';
+    const overallSkinType = urlParams.get('overall') || '';
+
+    if (!overallSkinType) {
+        // If overallSkinType is not present, hide the results section and return
+        const resultsSection = document.getElementById('results');
+        if (resultsSection) {
+            resultsSection.style.display = 'none';
+        }
+        return;
+    }
+
+    const resultP1TypeElem = document.getElementById('result-p1-type');
+    if (resultP1TypeElem) {
+        resultP1TypeElem.textContent = resultP1;
+    }
+    
+    const resultP2TypeElem = document.getElementById('result-p2-type');
+    if (resultP2TypeElem) {
+        resultP2TypeElem.textContent = resultP2;
+    }
+
+    const resultP3TypeElem = document.getElementById('result-p3-type');
+    if (resultP3TypeElem) {
+        resultP3TypeElem.textContent = resultP3;
+    }
+
+    const resultP4TypeElem = document.getElementById('result-p4-type');
+    if (resultP4TypeElem) {
+        resultP4TypeElem.textContent = resultP4;
+    }
+    
+    const overallSkinTypeElem = document.getElementById('overall-skin-type');
+    if (overallSkinTypeElem) {
+        overallSkinTypeElem.textContent = overallSkinType;
+    }
+
+    const skinTypeDetailsIntroP = document.getElementById('skin-type-details-intro-p');
+    if (skinTypeDetailsIntroP) {
+        skinTypeDetailsIntroP.textContent = translations[currentLang]["skin-type-details-intro"];
+    }
+
+    const detailsTitle = document.getElementById('details-title');
+    const detailsCause = document.getElementById('details-cause');
+    const detailsSymptoms = document.getElementById('details-symptoms');
+    const detailsSolution = document.getElementById('details-solution');
+    const skinTypeDetailDiv = document.getElementById('skin-type-details');
+
+    if (translations[currentLang].skinTypeDetails && translations[currentLang].skinTypeDetails[overallSkinType]) {
+        const detail = translations[currentLang].skinTypeDetails[overallSkinType];
+        if (detailsTitle) {
+            detailsTitle.textContent = detail.title;
+        }
+        if (detailsCause) {
+            detailsCause.textContent = detail.cause;
+        }
+        if (detailsSymptoms) {
+            detailsSymptoms.textContent = detail.symptoms;
+        }
+        if (detailsSolution) {
+            detailsSolution.textContent = detail.solution;
+        }
+        if (skinTypeDetailDiv) {
+            skinTypeDetailDiv.style.display = 'block';
+        }
+    } else {
+        if (detailsTitle) {
+            detailsTitle.textContent = '';
+        }
+        if (detailsCause) {
+            detailsCause.textContent = '';
+        }
+        if (detailsSymptoms) {
+            detailsSymptoms.textContent = '';
+        }
+        if (detailsSolution) {
+            detailsSolution.textContent = '';
+        }
+        if (skinTypeDetailDiv) {
+            skinTypeDetailDiv.style.display = 'none';
+        }
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     updateContent(currentLang);
     setupLanguageSwitcher();
-
-    const form = document.getElementById('skin-survey-form');
-
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-
-        const allQuestions = document.querySelectorAll('.question');
-        const allQuestionsAnswered = Array.from(allQuestions).every(question => {
-            const radio = question.querySelector('input[type="radio"]:checked');
-            return radio !== null;
-        });
-
-        const errorMessage = document.getElementById('error-message');
-        if (!allQuestionsAnswered) {
-            errorMessage.textContent = translations[currentLang]["alert-unanswered"];
-            return;
-        }
-        errorMessage.textContent = '';
-
-        let p1Score = 0;
-        let p2Score = 0;
-        let p3Score = 0;
-        let p4Score = 0;
-
-        document.querySelectorAll('input[name^="q"][name$="-p1"]:checked').forEach(input => {
-            const value = parseInt(input.value);
-            if (value === 1 || value === 2) {
-                p1Score += 1;
-            }
-        });
-        const resultP1 = p1Score >= 3 ? 'O (Oily)' : 'D (Dry)';
-        const resultP1Full = `Part 1 (O/D): ${resultP1}`;
-        console.log('p1Score:', p1Score, 'resultP1:', resultP1Full);
-
-        document.querySelectorAll('input[name^="q"][name$="-p2"]:checked').forEach(input => {
-            const value = parseInt(input.value);
-            if (value === 1 || value === 2) {
-                p2Score += 1;
-            }
-        });
-        const resultP2 = p2Score >= 3 ? 'S (Sensitive)' : 'R (Resistant)';
-        const resultP2Full = `Part 2 (S/R): ${resultP2}`;
-        console.log('p2Score:', p2Score, 'resultP2:', resultP2Full);
-
-        document.querySelectorAll('input[name^="q"][name$="-p3"]:checked').forEach(input => {
-            const value = parseInt(input.value);
-            if (value === 1 || value === 2) {
-                p3Score += 1;
-            }
-        });
-        const resultP3 = p3Score >= 3 ? 'P (Pigmented)' : 'N (Non-Pigmented)';
-        const resultP3Full = `Part 3 (P/N): ${resultP3}`;
-        console.log('p3Score:', p3Score, 'resultP3:', resultP3Full);
-
-        document.querySelectorAll('input[name^="q"][name$="-p4"]:checked').forEach(input => {
-            const value = parseInt(input.value);
-            if (value === 1 || value === 2) {
-                p4Score += 1;
-            }
-        });
-        const resultP4 = p4Score >= 3 ? 'W (Wrinkles)' : 'T (Firmness)';
-        const resultP4Full = `Part 4 (W/T): ${resultP4}`;
-        console.log('p4Score:', p4Score, 'resultP4:', resultP4Full);
-
-        const overallSkinType = `${resultP1.charAt(0)}${resultP2.charAt(0)}${resultP3.charAt(0)}${resultP4.charAt(0)}`;
-        console.log('overallSkinType:', overallSkinType);
-
-        const url = `results.html?p1=${encodeURIComponent(resultP1Full)}&p2=${encodeURIComponent(resultP2Full)}&p3=${encodeURIComponent(resultP3Full)}&p4=${encodeURIComponent(resultP4Full)}&overall=${encodeURIComponent(overallSkinType)}`;
-        console.log('Redirecting to:', url);
-        window.location.href = url;
-    });
+    displayResults();
 });

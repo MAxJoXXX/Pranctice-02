@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Type Survey Results</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 data-lang-key="results-title">Your Skin Type Result:</h1>
+        <div class="language-switcher">
+            <button data-lang="en" class="lang-btn active">🇺🇸 English</button>
+            <button data-lang="ko" class="lang-btn">🇰🇷 한국어</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="results">
+            <h2 data-lang-key="results-title">Your Skin Type Result:</h2>
+            <p><span id="result-p1-type"></span></p>
+            <p><span id="result-p2-type"></span></p>
+            <p><span id="result-p3-type"></span></p>
+            <p><span id="result-p4-type"></span></p>
+            <p data-lang-key="overall-result">Overall Skin Type: <span id="overall-skin-type"></span></p>
+            <div id="skin-type-details" style="margin-top: 20px;">
+                <p id="skin-type-details-intro-p" data-lang-key="skin-type-details-intro"></p>
+                <h3 id="details-title"></h3>
+                <p id="details-cause"></p>
+                <p id="details-symptoms"></p>
+                <p id="details-solution"></p>
+            </div>
+        </section>
+    </main>
+
+    <script src="results.js"></script>
+</body>
+</html>
